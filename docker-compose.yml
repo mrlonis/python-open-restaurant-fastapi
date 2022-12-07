@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 8008:8000
+    environment:
+      DATABASE_URL: postgresql://postgres:123456@db:5432/postgres
+    depends_on:
+      - postgresql
+
+  postgresql:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: 123456
+
+volumes:
+  postgres_data:
+    driver: local

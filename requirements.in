@@ -1,0 +1,23 @@
+--trusted-host pypi.org
+alembic
+black
+click
+devtools
+fastapi
+httpx
+isort
+pip-tools
+pre-commit
+psycopg
+psycopg2-binary
+pydantic
+pylint
+pylint-junit
+pytest
+pytest-asyncio
+pytest-cov
+pytest-postgresql
+pytest-watch
+pytest-xdist[psutil]
+sqlalchemy
+uvicorn[standard]
