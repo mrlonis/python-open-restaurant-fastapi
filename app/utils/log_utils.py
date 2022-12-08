@@ -1,9 +1,10 @@
 import logging
-import os
+
+from ..config.api_settings import ApiSettings
 
 
 def configure_logging():
-    log_level = os.environ.get("LOG_LEVEL", "INFO")
+    log_level = ApiSettings().log_level
 
     if len(logging.getLogger().handlers) > 0:
         # The Lambda environment pre-configures a handler logging to stderr. If a handler is already

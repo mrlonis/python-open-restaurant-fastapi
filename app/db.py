@@ -4,30 +4,30 @@ from sqlalchemy.orm import sessionmaker
 from sqlmodel import SQLModel, create_engine
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from .api_settings import ApiSettings
+from .config import DatabaseSettings
 
-api_settings = ApiSettings()
+database_settings = DatabaseSettings()
 
 
-def assemble_database_url(settings: ApiSettings, as_async: bool = True):
-    assert settings.database_host is not None
-    assert settings.database_port is not None
+def assemble_database_url(settings: DatabaseSettings, as_async: bool = True):
+    assert settings.host is not None
+    assert settings.port is not None
 
-    port = str(settings.database_port)
+    port = str(settings.port)
 
     scheme = "postgresql+asyncpg" if as_async else "postgresql"
 
     return PostgresDsn.build(
         scheme=scheme,
-        user=settings.database_user,
-        password=settings.database_password,
-        host=settings.database_host,
+        user=settings.user,
+        password=settings.password,
+        host=settings.host,
         port=port,
-        path=f"/{settings.database_name}",
+        path=f"/{settings.name}",
     )
 
 
-engine = AsyncEngine(create_engine(assemble_database_url(api_settings), echo=True, future=True))
+engine = AsyncEngine(create_engine(assemble_database_url(database_settings), echo=True, future=True))
 
 
 async def init_db():

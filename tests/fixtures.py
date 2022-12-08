@@ -2,7 +2,6 @@ import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from app.api_settings import ApiSettings
 from app.app_init import AppInitializer
 
 
@@ -28,7 +27,7 @@ def monkeypatch_session_():
 
 
 def create_app() -> FastAPI:
-    the_app: FastAPI = AppInitializer(ApiSettings()).create_app()
+    the_app: FastAPI = AppInitializer().create_app()
     return the_app
 
 
