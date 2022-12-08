@@ -15,17 +15,20 @@ def test_restaurants_route_no_params(test_client_module: TestClient):
 def test_restaurants_route_with_datetime_param(test_client_module: TestClient):
     client = test_client_module
 
+    # datetime.now() check for 200 response
     param = datetime.now()
     response = client.get(f"/restaurants?date={param.isoformat()}")
     assert response.status_code == 200
 
-    param = datetime(2022, 12, 8, 11, 11)  # Thursday
+    # Thursday December 8th, 11:11 AM
+    param = datetime(2022, 12, 8, 11, 11)
     response = client.get(f"/restaurants?date={param.isoformat()}")
     assert response.status_code == 200
     restaurants: list[dict] = response.json()
     assert len(restaurants) == 23
 
-    response = client.get("/restaurants?date=2022-12-8")
+    # Thursday December 8th - No Time
+    response = client.get("/restaurants?date=2022-12-08")
     assert response.status_code == 422
     response_json = cast(dict[str, Any], response.json())
     detail_json = cast(Union[list[dict[str, Any]], None], response_json.get("detail"))
@@ -33,3 +36,10 @@ def test_restaurants_route_with_datetime_param(test_client_module: TestClient):
     assert len(detail_json) == 1
     detail_json_item = detail_json[0]
     assert detail_json_item.get("msg") == "invalid datetime format"
+
+    # Thursday December 8th, 12:00 AM
+    param = datetime(2022, 12, 8, 0, 0)
+    response = client.get(f"/restaurants?date={param.isoformat()}")
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    assert len(restaurants) == 0

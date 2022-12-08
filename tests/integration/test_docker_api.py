@@ -20,17 +20,19 @@ def test_docker_api_restaurants_route_no_params():
 
 
 def test_restaurants_route_with_datetime_param():
-
+    # datetime.now() check for 200 response
     param = datetime.now()
     response = httpx.get(f"http://0.0.0.0:8008/restaurants?date={param.isoformat()}")
     assert response.status_code == 200
 
+    # Thursday December 8th, 11:11 AM
     param = datetime(2022, 12, 8, 11, 11)  # Thursday
     response = httpx.get(f"http://0.0.0.0:8008/restaurants?date={param.isoformat()}")
     assert response.status_code == 200
     restaurants: list[dict] = response.json()
     assert len(restaurants) == 23
 
+    # Thursday December 8th - No Time
     response = httpx.get("http://0.0.0.0:8008/restaurants?date=2022-12-8")
     assert response.status_code == 422
     response_json = cast(dict[str, Any], response.json())
@@ -39,3 +41,10 @@ def test_restaurants_route_with_datetime_param():
     assert len(detail_json) == 1
     detail_json_item = detail_json[0]
     assert detail_json_item.get("msg") == "invalid datetime format"
+
+    # Thursday December 8th, 12:00 AM
+    param = datetime(2022, 12, 8, 0, 0)
+    response = httpx.get(f"http://0.0.0.0:8008/restaurants?date={param.isoformat()}")
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    assert len(restaurants) == 0
