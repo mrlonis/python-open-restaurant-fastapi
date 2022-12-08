@@ -12,7 +12,7 @@ load-plugins=pylint_junit
 # A comma-separated list of package or module names from where C extensions may
 # be loaded. Extensions are loading into the active Python interpreter and may
 # run arbitrary code.
-extension-pkg-whitelist=pydantic,alembic
+extension-pkg-whitelist=pydantic,alembic,sqlmodel
 
 # Specify a score threshold to be exceeded before program exits with error.
 fail-under=10.0
@@ -172,7 +172,7 @@ contextmanager-decorators=contextlib.contextmanager
 # List of members which are set dynamically and missed by pylint inference
 # system, and so shouldn't trigger E1101 when accessed. Python regular
 # expressions are accepted.
-generated-members=alembic,context,sqlalchemy
+generated-members=alembic,context,sqlalchemy,sqlmodel
 
 # Tells whether missing members accessed in mixin class should be ignored. A
 # mixin class is detected if its name ends with "mixin" (case insensitive).

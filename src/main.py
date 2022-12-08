@@ -1,8 +1,9 @@
 import logging
 
+from .api_settings import ApiSettings
 from .app_init import AppInitializer
-from .config import ApiSettings
-from .utils import configure_logging
+from .db import assemble_database_url
+from .log_utils import configure_logging
 
 log_level = configure_logging()
 
@@ -13,4 +14,4 @@ settings = ApiSettings()
 app = AppInitializer(settings).create_app()
 
 logger.info("Starting up")
-logger.info(settings.database_url)
+logger.info(assemble_database_url(settings))

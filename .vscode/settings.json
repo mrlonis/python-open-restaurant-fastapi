@@ -9,5 +9,6 @@
   "python.formatting.provider": "black",
   "[python]": {
     "editor.formatOnSave": true
-  }
+  },
+  "cSpell.words": ["sqlmodel"]
 }

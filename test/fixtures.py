@@ -2,8 +2,8 @@ import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
+from src.api_settings import ApiSettings
 from src.app_init import AppInitializer
-from src.config import ApiSettings
 
 
 @pytest.fixture(scope="function")
@@ -11,7 +11,7 @@ def db_session(request) -> str:
     # create and run postgres for the test (requires postgres to be installed
     # and available on the path)
     fix = request.getfixturevalue("postgresql")
-    connection = f"postgresql://{fix.info.user}:{fix.info.password}@{fix.info.host}:{fix.info.port}/{fix.info.dbname}"  # pylint: disable=line-too-long
+    connection = f"postgresql+asyncpg://{fix.info.user}:{fix.info.password}@{fix.info.host}:{fix.info.port}/{fix.info.dbname}"  # pylint: disable=line-too-long
     return connection
 
 
