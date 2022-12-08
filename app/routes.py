@@ -2,8 +2,7 @@ from fastapi import Depends, FastAPI
 from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from .db import get_session
-from .models import Restaurant
+from .database import Restaurant, get_session
 
 
 def load_routes(app: FastAPI):

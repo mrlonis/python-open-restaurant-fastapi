@@ -2,7 +2,7 @@ import logging
 
 from .app_init import AppInitializer
 from .config import DatabaseSettings
-from .db import assemble_database_url
+from .database import assemble_database_url
 from .utils import configure_logging
 
 configure_logging()

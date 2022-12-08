@@ -1,14 +1,13 @@
 from logging.config import fileConfig
 
-from alembic import context
 from sqlalchemy import engine_from_config, pool
 from sqlmodel import SQLModel
 
-from app.db import assemble_database_url, database_settings
-from app.models import Restaurant  # pylint: disable=unused-import
+from alembic import context
+from app.config import DatabaseSettings
+from app.database import Restaurant, assemble_database_url  # pylint: disable=unused-import
 
-### CUSTOM FUNCTIONS ###
-### END CUSTOM FUNCTIONS ###
+database_settings = DatabaseSettings()
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
