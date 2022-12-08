@@ -1,7 +1,7 @@
 from pydantic import PostgresDsn
-from sqlalchemy.ext.asyncio.engine import AsyncEngine
+from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.orm import sessionmaker
-from sqlmodel import create_engine
+from sqlalchemy.pool import NullPool
 from sqlmodel.ext.asyncio.session import AsyncSession
 
 from ..config import DatabaseSettings
@@ -27,7 +27,7 @@ def assemble_database_url(settings: DatabaseSettings, as_async: bool = True):
     )
 
 
-engine = AsyncEngine(create_engine(assemble_database_url(database_settings), echo=True, future=True))
+engine = create_async_engine(assemble_database_url(database_settings), echo=True, future=True, poolclass=NullPool)
 
 
 async def get_session():
