@@ -41,3 +41,7 @@ pytest --cov --cov-report=html -n auto
 ```
 
 This will run the tests using xdist on multiple threads and generate a coverage report in the htmlcov directory.
+
+## CSV Row Totals
+
+I imported the provided CSV into Google Sheets to easily calculate the number of rows the csv import should make. You can view that via this link: [https://docs.google.com/spreadsheets/d/1t4kAuOgT4Oqoldq02rXDrrO2Mwgy80UkcfTBPhnlpK4/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1t4kAuOgT4Oqoldq02rXDrrO2Mwgy80UkcfTBPhnlpK4/edit?usp=sharing)
