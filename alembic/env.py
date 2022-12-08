@@ -1,14 +1,13 @@
 from logging.config import fileConfig
 
-from alembic import context
 from sqlalchemy import engine_from_config, pool
 from sqlmodel import SQLModel
 
-from app.db import api_settings, assemble_database_url
-from app.models import Restaurant  # pylint: disable=unused-import
+from alembic import context
+from app.config import DatabaseSettings
+from app.database import Restaurant, assemble_database_url  # pylint: disable=unused-import
 
-### CUSTOM FUNCTIONS ###
-### END CUSTOM FUNCTIONS ###
+database_settings = DatabaseSettings()
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -44,7 +43,7 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = assemble_database_url(api_settings)
+    url = assemble_database_url(database_settings)
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -64,7 +63,7 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    url = assemble_database_url(api_settings, False)
+    url = assemble_database_url(database_settings, False)
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),  # type: ignore
         prefix="sqlalchemy.",

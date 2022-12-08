@@ -6,7 +6,7 @@ fastapi
 httpx
 psycopg2-binary
 pydantic
-sqlalchemy
+sqlalchemy[asyncio]
 sqlalchemy-utils
 sqlmodel
 uvicorn[standard]

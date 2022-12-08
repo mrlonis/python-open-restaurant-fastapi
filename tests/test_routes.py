@@ -1,37 +1,31 @@
 from datetime import datetime
 from typing import Any, Union, cast
 
-import httpx
+from fastapi.testclient import TestClient
 
 
-def test_docker_api_root_path():
-    response = httpx.get("http://0.0.0.0:8008")
-    assert response.status_code == 200
-    response_json: dict[str, str] = response.json()
-    result = response_json.get("Hello")
-    assert result == "World"
-
-
-def test_docker_api_restaurants_route_no_params():
-    response = httpx.get("http://0.0.0.0:8008/restaurants")
+def test_restaurants_route_no_params(test_client_module: TestClient):
+    client = test_client_module
+    response = client.get("/restaurants")
     assert response.status_code == 200
     restaurants: list[dict] = response.json()
     assert len(restaurants) == 276
 
 
-def test_restaurants_route_with_datetime_param():
+def test_restaurants_route_with_datetime_param(test_client_module: TestClient):
+    client = test_client_module
 
     param = datetime.now()
-    response = httpx.get(f"http://0.0.0.0:8008/restaurants?date={param.isoformat()}")
+    response = client.get(f"/restaurants?date={param.isoformat()}")
     assert response.status_code == 200
 
     param = datetime(2022, 12, 8, 11, 11)  # Thursday
-    response = httpx.get(f"http://0.0.0.0:8008/restaurants?date={param.isoformat()}")
+    response = client.get(f"/restaurants?date={param.isoformat()}")
     assert response.status_code == 200
     restaurants: list[dict] = response.json()
     assert len(restaurants) == 23
 
-    response = httpx.get("http://0.0.0.0:8008/restaurants?date=2022-12-8")
+    response = client.get("/restaurants?date=2022-12-8")
     assert response.status_code == 422
     response_json = cast(dict[str, Any], response.json())
     detail_json = cast(Union[list[dict[str, Any]], None], response_json.get("detail"))
