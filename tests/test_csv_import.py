@@ -1,4 +1,4 @@
-from src.csv_utils import csv_import
+from app.csv_utils import csv_import
 
 
 def test_csv_import():

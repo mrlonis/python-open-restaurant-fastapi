@@ -3,7 +3,7 @@ from datetime import time
 from pathlib import Path
 from typing import Literal, Optional, cast
 
-from src.models import Restaurant
+from app.models import Restaurant
 
 acronym_map = {
     "Mon": 0,

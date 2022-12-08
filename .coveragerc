@@ -1,16 +1,16 @@
 [run]
 branch = True
 include =
-    ./src/*
+    ./app/*
 omit =
     ./.idea/*
     ./.pytest_cache/*
     ./.vscode/*
-    ./alembic-scripts/*
+    ./alembic/*
     ./htmlcov/*
     ./junit/*
     ./scripts/*
-    ./test/*
+    ./tests/*
     */__pycache__/*
     ./setup.py
 [report]

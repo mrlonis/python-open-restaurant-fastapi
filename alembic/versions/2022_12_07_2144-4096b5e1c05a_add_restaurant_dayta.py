@@ -7,9 +7,9 @@ Create Date: 2022-12-07 21:44:33.106323
 """
 from sqlmodel import Session, create_engine, select
 
-from src.db import api_settings, assemble_database_url
-from src.models import Restaurant
-from src.csv_utils import csv_import
+from app.csv_utils import csv_import
+from app.db import api_settings, assemble_database_url
+from app.models import Restaurant
 
 # revision identifiers, used by Alembic.
 revision = "4096b5e1c05a"

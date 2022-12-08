@@ -2,8 +2,8 @@ import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from src.api_settings import ApiSettings
-from src.app_init import AppInitializer
+from app.api_settings import ApiSettings
+from app.app_init import AppInitializer
 
 
 @pytest.fixture(scope="function")

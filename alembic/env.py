@@ -1,11 +1,11 @@
 from logging.config import fileConfig
 
+from alembic import context
 from sqlalchemy import engine_from_config, pool
 from sqlmodel import SQLModel
 
-from alembic import context
-from src.db import api_settings, assemble_database_url
-from src.models import Restaurant  # pylint: disable=unused-import
+from app.db import api_settings, assemble_database_url
+from app.models import Restaurant  # pylint: disable=unused-import
 
 ### CUSTOM FUNCTIONS ###
 ### END CUSTOM FUNCTIONS ###
@@ -45,7 +45,6 @@ def run_migrations_offline() -> None:
 
     """
     url = assemble_database_url(api_settings)
-    # url = config.get_main_option("sqlalchemy.url")
     context.configure(
         url=url,
         target_metadata=target_metadata,
