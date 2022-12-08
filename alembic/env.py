@@ -1,36 +1,13 @@
-import os
 from logging.config import fileConfig
-from typing import Optional, Union, overload
 
 from sqlalchemy import engine_from_config, pool
+from sqlmodel import SQLModel
 
 from alembic import context
-
+from src.db import api_settings, assemble_database_url
+from src.models import Restaurant  # pylint: disable=unused-import
 
 ### CUSTOM FUNCTIONS ###
-@overload
-def get_setting(setting_name: str, default_value: str) -> str:
-    ...
-
-
-@overload
-def get_setting(setting_name: str, default_value=None) -> Union[str, None]:
-    ...
-
-
-def get_setting(setting_name: str, default_value: Optional[str] = None):
-    """Try and load a setting from either the environment or a secret"""
-    if setting_name in os.environ:
-        return os.environ.get(setting_name)
-    return default_value
-
-
-def get_db_url():
-    url = get_setting("DATABASE_URL", "postgresql://postgres:123456@localhost:5432/postgres")
-    print(url)
-    return url
-
-
 ### END CUSTOM FUNCTIONS ###
 
 # this is the Alembic Config object, which provides
@@ -46,7 +23,8 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+# target_metadata = None
+target_metadata = SQLModel.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
@@ -66,7 +44,7 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = get_db_url()
+    url = assemble_database_url(api_settings)
     # url = config.get_main_option("sqlalchemy.url")
     context.configure(
         url=url,
@@ -87,7 +65,7 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    url = get_db_url()
+    url = assemble_database_url(api_settings, False)
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),  # type: ignore
         prefix="sqlalchemy.",

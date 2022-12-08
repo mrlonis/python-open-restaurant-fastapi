@@ -1,0 +1,26 @@
+[run]
+branch = True
+include =
+    ./src/*
+omit =
+    ./.idea/*
+    ./.pytest_cache/*
+    ./.vscode/*
+    ./alembic-scripts/*
+    ./htmlcov/*
+    ./junit/*
+    ./scripts/*
+    ./test/*
+    */__pycache__/*
+    ./setup.py
+[report]
+precision = 2
+show_missing = True
+skip_empty = True
+sort = Name
+[html]
+directory = ./htmlcov
+skip_empty = True
+title = python-open-restaurant-api Coverage Report
+[xml]
+output = ./junit/coverage.xml

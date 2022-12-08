@@ -1,6 +1,1 @@
-from .fixtures import (  # pylint: disable=unused-import
-    db_session,
-    monkeypatch_session_,
-    test_app_,
-    test_client_,
-)
+from .fixtures import db_session, monkeypatch_session_, test_app_, test_client_  # pylint: disable=unused-import

@@ -1,0 +1,7 @@
+-r requirements-test.txt
+black
+click
+devtools
+isort
+pip-tools
+pre-commit
