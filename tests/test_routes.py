@@ -3,6 +3,8 @@ from typing import Any, Union, cast
 
 from fastapi.testclient import TestClient
 
+from app.database.models import Restaurant
+
 
 def test_restaurants_route_no_params(test_client_module: TestClient):
     client = test_client_module
@@ -26,6 +28,8 @@ def test_restaurants_route_with_datetime_param(test_client_module: TestClient):
     assert response.status_code == 200
     restaurants: list[dict] = response.json()
     assert len(restaurants) == 23
+    restaurant = Restaurant(**restaurants[0])
+    assert restaurant.name == "The Cowfish Sushi Burger Bar"
 
     # Thursday December 8th - No Time
     response = client.get("/restaurants?date=2022-12-08")

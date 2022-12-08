@@ -3,6 +3,8 @@ from typing import Any, Union, cast
 
 import httpx
 
+from app.database.models import Restaurant
+
 
 def test_docker_api_root_path():
     response = httpx.get("http://0.0.0.0:8008")
@@ -31,6 +33,8 @@ def test_restaurants_route_with_datetime_param():
     assert response.status_code == 200
     restaurants: list[dict] = response.json()
     assert len(restaurants) == 23
+    restaurant = Restaurant(**restaurants[0])
+    assert restaurant.name == "The Cowfish Sushi Burger Bar"
 
     # Thursday December 8th - No Time
     response = httpx.get("http://0.0.0.0:8008/restaurants?date=2022-12-8")
