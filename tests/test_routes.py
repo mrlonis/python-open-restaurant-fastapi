@@ -28,7 +28,7 @@ def test_restaurants_route_with_datetime_param(test_client_module: TestClient):
     response = client.get(f"/restaurants?date={param.isoformat()}")
     assert response.status_code == 200
     restaurants: list[dict] = response.json()
-    assert len(restaurants) == 23
+    assert len(restaurants) == 25
     restaurant = Restaurant(**restaurants[0])
     assert restaurant.name == "The Cowfish Sushi Burger Bar"
 
@@ -47,7 +47,7 @@ def test_restaurants_route_with_datetime_param(test_client_module: TestClient):
     response = client.get(f"/restaurants?date={param.isoformat()}")
     assert response.status_code == 200
     restaurants: list[dict] = response.json()
-    assert len(restaurants) == 0
+    assert len(restaurants) == 5
 
 
 @pytest.mark.parametrize(
@@ -75,32 +75,32 @@ def test_restaurants_route_with_datetime_param(test_client_module: TestClient):
         (9, 30, 1),
         (10, 0, 2),
         (10, 30, 3),
-        (11, 0, 23),
-        (11, 30, 35),
-        (12, 0, 35),
-        (12, 30, 32),
-        (13, 0, 32),
-        (13, 30, 32),
-        (14, 0, 32),
-        (14, 30, 32),
-        (15, 0, 32),
-        (15, 30, 32),
-        (16, 0, 32),
-        (16, 30, 32),
-        (17, 0, 33),
-        (17, 30, 33),
-        (18, 0, 33),
-        (18, 30, 33),
-        (19, 0, 33),
-        (19, 30, 33),
-        (20, 0, 33),
-        (20, 30, 33),
-        (21, 0, 33),
-        (21, 30, 31),
-        (22, 0, 26),
-        (22, 30, 7),
-        (23, 0, 4),
-        (23, 30, 0),
+        (11, 0, 25),
+        (11, 30, 37),
+        (12, 0, 37),
+        (12, 30, 36),
+        (13, 0, 36),
+        (13, 30, 36),
+        (14, 0, 36),
+        (14, 30, 36),
+        (15, 0, 36),
+        (15, 30, 36),
+        (16, 0, 36),
+        (16, 30, 36),
+        (17, 0, 38),
+        (17, 30, 38),
+        (18, 0, 38),
+        (18, 30, 38),
+        (19, 0, 38),
+        (19, 30, 38),
+        (20, 0, 38),
+        (20, 30, 38),
+        (21, 0, 38),
+        (21, 30, 36),
+        (22, 0, 31),
+        (22, 30, 12),
+        (23, 0, 9),
+        (23, 30, 5),
     ],
 )
 def test_restaurants_monday(hour: int, minute: int, total: int, test_client_module: TestClient):
@@ -114,18 +114,30 @@ def test_restaurants_monday(hour: int, minute: int, total: int, test_client_modu
     assert len(restaurants) == total
 
 
+def test_restaurants_monday_spec(test_client_module: TestClient):
+    client = test_client_module
+
+    # Monday December 12th
+    param = datetime(2022, 12, 12, 23, 30)
+    response = client.get(f"/restaurants?date={param.isoformat()}")
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    for restaurant in restaurants:
+        print(restaurant)
+
+
 @pytest.mark.parametrize(
     "hour,minute,total",
     [
-        (0, 0, 0),
-        (0, 30, 0),
-        (1, 0, 0),
-        (1, 30, 0),
-        (2, 0, 0),
-        (2, 30, 0),
-        (3, 0, 0),
-        (3, 30, 0),
-        (4, 0, 0),
+        (0, 0, 5),
+        (0, 30, 2),
+        (1, 0, 1),
+        (1, 30, 1),
+        (2, 0, 1),
+        (2, 30, 1),
+        (3, 0, 1),
+        (3, 30, 1),
+        (4, 0, 1),
         (4, 30, 0),
         (5, 0, 0),
         (5, 30, 0),
@@ -139,32 +151,32 @@ def test_restaurants_monday(hour: int, minute: int, total: int, test_client_modu
         (9, 30, 1),
         (10, 0, 2),
         (10, 30, 3),
-        (11, 0, 22),
-        (11, 30, 35),
-        (12, 0, 35),
-        (12, 30, 32),
-        (13, 0, 32),
-        (13, 30, 32),
-        (14, 0, 32),
-        (14, 30, 32),
-        (15, 0, 32),
-        (15, 30, 32),
-        (16, 0, 32),
-        (16, 30, 32),
-        (17, 0, 33),
-        (17, 30, 33),
-        (18, 0, 33),
-        (18, 30, 33),
-        (19, 0, 33),
-        (19, 30, 33),
-        (20, 0, 33),
-        (20, 30, 33),
-        (21, 0, 33),
-        (21, 30, 31),
-        (22, 0, 26),
-        (22, 30, 7),
-        (23, 0, 4),
-        (23, 30, 0),
+        (11, 0, 24),
+        (11, 30, 37),
+        (12, 0, 37),
+        (12, 30, 36),
+        (13, 0, 36),
+        (13, 30, 36),
+        (14, 0, 36),
+        (14, 30, 36),
+        (15, 0, 36),
+        (15, 30, 36),
+        (16, 0, 36),
+        (16, 30, 36),
+        (17, 0, 38),
+        (17, 30, 38),
+        (18, 0, 38),
+        (18, 30, 38),
+        (19, 0, 38),
+        (19, 30, 38),
+        (20, 0, 38),
+        (20, 30, 38),
+        (21, 0, 38),
+        (21, 30, 36),
+        (22, 0, 31),
+        (22, 30, 12),
+        (23, 0, 9),
+        (23, 30, 5),
     ],
 )
 def test_restaurants_tuesday(hour: int, minute: int, total: int, test_client_module: TestClient):
@@ -178,18 +190,30 @@ def test_restaurants_tuesday(hour: int, minute: int, total: int, test_client_mod
     assert len(restaurants) == total
 
 
+def test_restaurants_tuesday_spec(test_client_module: TestClient):
+    client = test_client_module
+
+    # Tuesday December 13th
+    param = datetime(2022, 12, 13, 11, 30)
+    response = client.get(f"/restaurants?date={param.isoformat()}")
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    for restaurant in restaurants:
+        print(restaurant)
+
+
 @pytest.mark.parametrize(
     "hour,minute,total",
     [
-        (0, 0, 0),
-        (0, 30, 0),
-        (1, 0, 0),
-        (1, 30, 0),
-        (2, 0, 0),
-        (2, 30, 0),
-        (3, 0, 0),
-        (3, 30, 0),
-        (4, 0, 0),
+        (0, 0, 5),
+        (0, 30, 2),
+        (1, 0, 1),
+        (1, 30, 1),
+        (2, 0, 1),
+        (2, 30, 1),
+        (3, 0, 1),
+        (3, 30, 1),
+        (4, 0, 1),
         (4, 30, 0),
         (5, 0, 0),
         (5, 30, 0),
@@ -203,32 +227,32 @@ def test_restaurants_tuesday(hour: int, minute: int, total: int, test_client_mod
         (9, 30, 1),
         (10, 0, 2),
         (10, 30, 3),
-        (11, 0, 23),
-        (11, 30, 36),
-        (12, 0, 36),
-        (12, 30, 33),
-        (13, 0, 33),
-        (13, 30, 33),
-        (14, 0, 33),
-        (14, 30, 33),
-        (15, 0, 33),
-        (15, 30, 33),
-        (16, 0, 33),
-        (16, 30, 33),
-        (17, 0, 34),
-        (17, 30, 34),
-        (18, 0, 34),
-        (18, 30, 34),
-        (19, 0, 34),
-        (19, 30, 34),
-        (20, 0, 34),
-        (20, 30, 34),
-        (21, 0, 34),
-        (21, 30, 32),
-        (22, 0, 27),
-        (22, 30, 7),
-        (23, 0, 4),
-        (23, 30, 0),
+        (11, 0, 25),
+        (11, 30, 38),
+        (12, 0, 38),
+        (12, 30, 37),
+        (13, 0, 37),
+        (13, 30, 37),
+        (14, 0, 37),
+        (14, 30, 37),
+        (15, 0, 37),
+        (15, 30, 37),
+        (16, 0, 37),
+        (16, 30, 37),
+        (17, 0, 39),
+        (17, 30, 39),
+        (18, 0, 39),
+        (18, 30, 39),
+        (19, 0, 39),
+        (19, 30, 39),
+        (20, 0, 39),
+        (20, 30, 39),
+        (21, 0, 39),
+        (21, 30, 37),
+        (22, 0, 32),
+        (22, 30, 12),
+        (23, 0, 9),
+        (23, 30, 5),
     ],
 )
 def test_restaurants_wednesday(hour: int, minute: int, total: int, test_client_module: TestClient):
@@ -242,18 +266,30 @@ def test_restaurants_wednesday(hour: int, minute: int, total: int, test_client_m
     assert len(restaurants) == total
 
 
+def test_restaurants_wednesday_spec(test_client_module: TestClient):
+    client = test_client_module
+
+    # Wednesday December 7th
+    param = datetime(2022, 12, 7, 0, 30)
+    response = client.get(f"/restaurants?date={param.isoformat()}")
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    for restaurant in restaurants:
+        print(restaurant)
+
+
 @pytest.mark.parametrize(
     "hour,minute,total",
     [
-        (0, 0, 0),
-        (0, 30, 0),
-        (1, 0, 0),
-        (1, 30, 0),
-        (2, 0, 0),
-        (2, 30, 0),
-        (3, 0, 0),
-        (3, 30, 0),
-        (4, 0, 0),
+        (0, 0, 5),
+        (0, 30, 2),
+        (1, 0, 1),
+        (1, 30, 1),
+        (2, 0, 1),
+        (2, 30, 1),
+        (3, 0, 1),
+        (3, 30, 1),
+        (4, 0, 1),
         (4, 30, 0),
         (5, 0, 0),
         (5, 30, 0),
@@ -267,32 +303,32 @@ def test_restaurants_wednesday(hour: int, minute: int, total: int, test_client_m
         (9, 30, 1),
         (10, 0, 2),
         (10, 30, 3),
-        (11, 0, 23),
-        (11, 30, 36),
-        (12, 0, 36),
-        (12, 30, 33),
-        (13, 0, 33),
-        (13, 30, 33),
-        (14, 0, 33),
-        (14, 30, 33),
-        (15, 0, 33),
-        (15, 30, 33),
-        (16, 0, 33),
-        (16, 30, 33),
-        (17, 0, 34),
-        (17, 30, 34),
-        (18, 0, 34),
-        (18, 30, 34),
-        (19, 0, 34),
-        (19, 30, 34),
-        (20, 0, 34),
-        (20, 30, 34),
-        (21, 0, 34),
-        (21, 30, 32),
-        (22, 0, 27),
-        (22, 30, 7),
-        (23, 0, 4),
-        (23, 30, 0),
+        (11, 0, 25),
+        (11, 30, 38),
+        (12, 0, 38),
+        (12, 30, 37),
+        (13, 0, 37),
+        (13, 30, 37),
+        (14, 0, 37),
+        (14, 30, 37),
+        (15, 0, 37),
+        (15, 30, 37),
+        (16, 0, 37),
+        (16, 30, 37),
+        (17, 0, 39),
+        (17, 30, 39),
+        (18, 0, 39),
+        (18, 30, 39),
+        (19, 0, 39),
+        (19, 30, 39),
+        (20, 0, 39),
+        (20, 30, 39),
+        (21, 0, 39),
+        (21, 30, 37),
+        (22, 0, 32),
+        (22, 30, 12),
+        (23, 0, 9),
+        (23, 30, 5),
     ],
 )
 def test_restaurants_thursday(hour: int, minute: int, total: int, test_client_module: TestClient):
@@ -306,18 +342,30 @@ def test_restaurants_thursday(hour: int, minute: int, total: int, test_client_mo
     assert len(restaurants) == total
 
 
+def test_restaurants_thursday_spec(test_client_module: TestClient):
+    client = test_client_module
+
+    # Thursday December 8th
+    param = datetime(2022, 12, 8, 0, 30)
+    response = client.get(f"/restaurants?date={param.isoformat()}")
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    for restaurant in restaurants:
+        print(restaurant)
+
+
 @pytest.mark.parametrize(
     "hour,minute,total",
     [
-        (0, 0, 0),
-        (0, 30, 0),
-        (1, 0, 0),
-        (1, 30, 0),
-        (2, 0, 0),
-        (2, 30, 0),
-        (3, 0, 0),
-        (3, 30, 0),
-        (4, 0, 0),
+        (0, 0, 5),
+        (0, 30, 2),
+        (1, 0, 2),
+        (1, 30, 2),
+        (2, 0, 1),
+        (2, 30, 1),
+        (3, 0, 1),
+        (3, 30, 1),
+        (4, 0, 1),
         (4, 30, 0),
         (5, 0, 0),
         (5, 30, 0),
@@ -331,32 +379,32 @@ def test_restaurants_thursday(hour: int, minute: int, total: int, test_client_mo
         (9, 30, 1),
         (10, 0, 3),
         (10, 30, 4),
-        (11, 0, 23),
-        (11, 30, 36),
-        (12, 0, 36),
-        (12, 30, 32),
-        (13, 0, 31),
-        (13, 30, 31),
-        (14, 0, 31),
-        (14, 30, 31),
-        (15, 0, 31),
-        (15, 30, 31),
-        (16, 0, 31),
-        (16, 30, 31),
-        (17, 0, 32),
-        (17, 30, 32),
-        (18, 0, 32),
-        (18, 30, 32),
-        (19, 0, 32),
-        (19, 30, 32),
-        (20, 0, 32),
-        (20, 30, 32),
-        (21, 0, 32),
-        (21, 30, 31),
-        (22, 0, 27),
-        (22, 30, 12),
-        (23, 0, 8),
-        (23, 30, 0),
+        (11, 0, 25),
+        (11, 30, 38),
+        (12, 0, 38),
+        (12, 30, 37),
+        (13, 0, 37),
+        (13, 30, 37),
+        (14, 0, 37),
+        (14, 30, 37),
+        (15, 0, 37),
+        (15, 30, 37),
+        (16, 0, 37),
+        (16, 30, 37),
+        (17, 0, 39),
+        (17, 30, 39),
+        (18, 0, 39),
+        (18, 30, 39),
+        (19, 0, 39),
+        (19, 30, 39),
+        (20, 0, 39),
+        (20, 30, 39),
+        (21, 0, 39),
+        (21, 30, 38),
+        (22, 0, 34),
+        (22, 30, 19),
+        (23, 0, 15),
+        (23, 30, 7),
     ],
 )
 def test_restaurants_friday(hour: int, minute: int, total: int, test_client_module: TestClient):
@@ -370,18 +418,30 @@ def test_restaurants_friday(hour: int, minute: int, total: int, test_client_modu
     assert len(restaurants) == total
 
 
+def test_restaurants_friday_spec(test_client_module: TestClient):
+    client = test_client_module
+
+    # Friday December 9th
+    param = datetime(2022, 12, 9, 12, 0)
+    response = client.get(f"/restaurants?date={param.isoformat()}")
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    for restaurant in restaurants:
+        print(restaurant)
+
+
 @pytest.mark.parametrize(
     "hour,minute,total",
     [
-        (0, 0, 0),
-        (0, 30, 0),
-        (1, 0, 0),
-        (1, 30, 0),
-        (2, 0, 0),
-        (2, 30, 0),
-        (3, 0, 0),
-        (3, 30, 0),
-        (4, 0, 0),
+        (0, 0, 7),
+        (0, 30, 3),
+        (1, 0, 2),
+        (1, 30, 2),
+        (2, 0, 1),
+        (2, 30, 1),
+        (3, 0, 1),
+        (3, 30, 1),
+        (4, 0, 1),
         (4, 30, 0),
         (5, 0, 0),
         (5, 30, 0),
@@ -395,32 +455,32 @@ def test_restaurants_friday(hour: int, minute: int, total: int, test_client_modu
         (9, 30, 3),
         (10, 0, 5),
         (10, 30, 5),
-        (11, 0, 22),
-        (11, 30, 32),
-        (12, 0, 32),
-        (12, 30, 28),
-        (13, 0, 27),
-        (13, 30, 27),
-        (14, 0, 27),
-        (14, 30, 27),
-        (15, 0, 27),
-        (15, 30, 26),
-        (16, 0, 26),
-        (16, 30, 26),
-        (17, 0, 29),
-        (17, 30, 31),
-        (18, 0, 31),
-        (18, 30, 31),
-        (19, 0, 31),
-        (19, 30, 31),
-        (20, 0, 31),
-        (20, 30, 31),
-        (21, 0, 31),
-        (21, 30, 30),
-        (22, 0, 26),
-        (22, 30, 13),
-        (23, 0, 9),
-        (23, 30, 0),
+        (11, 0, 24),
+        (11, 30, 34),
+        (12, 0, 34),
+        (12, 30, 33),
+        (13, 0, 33),
+        (13, 30, 33),
+        (14, 0, 33),
+        (14, 30, 33),
+        (15, 0, 34),
+        (15, 30, 33),
+        (16, 0, 33),
+        (16, 30, 33),
+        (17, 0, 36),
+        (17, 30, 38),
+        (18, 0, 38),
+        (18, 30, 38),
+        (19, 0, 38),
+        (19, 30, 38),
+        (20, 0, 38),
+        (20, 30, 38),
+        (21, 0, 38),
+        (21, 30, 37),
+        (22, 0, 33),
+        (22, 30, 20),
+        (23, 0, 16),
+        (23, 30, 7),
     ],
 )
 def test_restaurants_saturday(hour: int, minute: int, total: int, test_client_module: TestClient):
@@ -434,34 +494,46 @@ def test_restaurants_saturday(hour: int, minute: int, total: int, test_client_mo
     assert len(restaurants) == total
 
 
+def test_restaurants_saturday_spec(test_client_module: TestClient):
+    client = test_client_module
+
+    # Saturday December 10th
+    param = datetime(2022, 12, 10, 0, 30)
+    response = client.get(f"/restaurants?date={param.isoformat()}")
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    for restaurant in restaurants:
+        print(restaurant)
+
+
 @pytest.mark.parametrize(
     "hour,minute,total",
     [
-        (0, 0, 2),
-        (0, 30, 2),
+        (0, 0, 7),
+        (0, 30, 3),
         (1, 0, 2),
         (1, 30, 2),
-        (2, 0, 2),
+        (2, 0, 1),
         (2, 30, 1),
         (3, 0, 1),
         (3, 30, 1),
         (4, 0, 1),
-        (4, 30, 1),
-        (5, 0, 1),
-        (5, 30, 1),
-        (6, 0, 1),
-        (6, 30, 1),
-        (7, 0, 2),
-        (7, 30, 2),
-        (8, 0, 2),
-        (8, 30, 2),
-        (9, 0, 3),
-        (9, 30, 4),
-        (10, 0, 6),
-        (10, 30, 6),
-        (11, 0, 22),
-        (11, 30, 32),
-        (12, 0, 32),
+        (4, 30, 0),
+        (5, 0, 0),
+        (5, 30, 0),
+        (6, 0, 0),
+        (6, 30, 0),
+        (7, 0, 1),
+        (7, 30, 1),
+        (8, 0, 1),
+        (8, 30, 1),
+        (9, 0, 2),
+        (9, 30, 3),
+        (10, 0, 5),
+        (10, 30, 5),
+        (11, 0, 19),
+        (11, 30, 29),
+        (12, 0, 30),
         (12, 30, 30),
         (13, 0, 30),
         (13, 30, 30),
@@ -496,3 +568,15 @@ def test_restaurants_sunday(hour: int, minute: int, total: int, test_client_modu
     assert response.status_code == 200
     restaurants: list[dict] = response.json()
     assert len(restaurants) == total
+
+
+def test_restaurants_sunday_spec(test_client_module: TestClient):
+    client = test_client_module
+
+    # Sunday December 11th
+    param = datetime(2022, 12, 11, 3, 30)
+    response = client.get(f"/restaurants?date={param.isoformat()}")
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    for restaurant in restaurants:
+        print(restaurant)
