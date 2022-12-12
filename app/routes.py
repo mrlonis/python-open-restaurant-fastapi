@@ -19,10 +19,17 @@ def load_routes(app: FastAPI):
 
         if date:
             query_time = date.time()
+            weekday = date.weekday()
+
             statement = statement.where(
-                Restaurant.weekday == date.weekday(),
-                Restaurant.open <= query_time,
-                Restaurant.close >= query_time,
+                (
+                    ((Restaurant.open_weekday == weekday) & (Restaurant.open_time <= query_time))
+                    | (Restaurant.open_weekday < weekday)
+                )
+                & (
+                    ((Restaurant.close_weekday == weekday) & (Restaurant.close_time >= query_time))
+                    | (Restaurant.close_weekday > weekday)
+                ),
             )
 
         result = await session.execute(statement)
@@ -31,9 +38,10 @@ def load_routes(app: FastAPI):
             Restaurant(
                 id=restaurant.id,
                 name=restaurant.name,
-                weekday=restaurant.weekday,
-                open=restaurant.open,
-                close=restaurant.close,
+                open_weekday=restaurant.open_weekday,
+                open_time=restaurant.open_time,
+                close_weekday=restaurant.close_weekday,
+                close_time=restaurant.close_time,
             )
             for restaurant in restaurants
         ]

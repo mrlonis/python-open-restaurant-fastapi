@@ -72,14 +72,13 @@ def _process_time(time_str: str, am_pm: str):
     else:
         raise ValueError("Invalid Time")
 
-    # If PM we need to add 12 hours
-    if am_pm == "pm":
-        hour = return_time.hour + 12
-        if hour >= 24:
-            # If greater than or equal to 24, set to correct time
-            hour = 0
+    # If AM we need to set to 0 if 12
+    if am_pm == "am" and return_time.hour == 12:
+        return_time = time(0, return_time.minute)
 
-        return_time = time(hour, return_time.minute)
+    # If PM we need to add 12 hours
+    if am_pm == "pm" and return_time.hour < 12:
+        return_time = time(return_time.hour + 12, return_time.minute)
 
     return return_time
 
@@ -96,18 +95,35 @@ def _process_csv(csv_data: str, name: str, additional_weekday_ranges: Optional[l
         weekdays.extend(additional_weekday_ranges)
 
     # Open Time
-    open_time = _process_time(space_split[1], space_split[2])
+    open_time_am_pm = space_split[2]
+    open_time = _process_time(space_split[1], open_time_am_pm)
 
     # Close Time
-    close_time = _process_time(space_split[4], space_split[5])
+    close_time_am_pm = space_split[5]
+    close_time = _process_time(space_split[4], close_time_am_pm)
 
     # Build Restaurant
     for weekday in weekdays:
+        close_weekday = weekday
+        # If open time is PM and close time is AM
+        # or if open time is AM and close time is AM and open time is greater than close time
+        # we need to add 1 day to the close time
+        if (close_time_am_pm == "am" and open_time_am_pm == "pm") or (
+            open_time_am_pm == "am" and close_time_am_pm == "am" and open_time.hour > close_time.hour
+        ):
+
+            close_weekday += 1
+
+            # If close weekday is 7, set to 0
+            if close_weekday == 7:
+                close_weekday = 0
+
         temp_restaurant = Restaurant(
             name=name,
-            weekday=weekday,
-            open=open_time,
-            close=close_time,
+            open_weekday=weekday,
+            open_time=open_time,
+            close_weekday=close_weekday,
+            close_time=close_time,
         )
         restaurants.append(temp_restaurant)
 

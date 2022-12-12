@@ -13,6 +13,7 @@ omit =
     ./tests/*
     */__pycache__/*
     ./setup.py
+concurrency = thread,greenlet
 [report]
 precision = 2
 show_missing = True

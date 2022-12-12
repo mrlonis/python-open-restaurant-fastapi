@@ -40,7 +40,11 @@ def downgrade() -> None:
     with Session(engine) as session:
         for restaurant in restaurants:
             statement = select(Restaurant).where(
-                Restaurant.name == restaurant.name, Restaurant.weekday == restaurant.weekday
+                Restaurant.name == restaurant.name,
+                Restaurant.open_weekday == restaurant.open_weekday,
+                Restaurant.open_time == restaurant.open_time,
+                Restaurant.close_weekday == restaurant.close_weekday,
+                Restaurant.close_time == restaurant.close_time,
             )
             results = session.exec(statement)
             restaurant = results.one()
