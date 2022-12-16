@@ -1,11 +1,13 @@
 import csv
 from datetime import time
 from pathlib import Path
-from typing import Literal, Optional, cast
+from typing import Literal, cast
 
 from ..database import Restaurant
 
-acronym_map = {
+T = Literal["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"]  # pylint: disable=invalid-name
+
+ACRONYM_MAP = {
     "Mon": 0,
     "Tues": 1,
     "Wed": 2,
@@ -16,8 +18,8 @@ acronym_map = {
 }
 
 
-def map_weekday_acronym_to_int(acronym: Literal["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"]):
-    result = acronym_map.get(acronym)
+def map_weekday_acronym_to_int(acronym: T):
+    result = ACRONYM_MAP.get(acronym)
     assert result is not None
     return result
 
@@ -33,15 +35,16 @@ def csv_import():
 
             split_hours = hours.split("  / ")
             for split_hour in split_hours:
-                comma_split = split_hour.split(", ")
-                if len(comma_split) == 1:
-                    # No Comma
-                    restaurants.extend(_process_csv(comma_split[0], name))
-                else:
-                    # With Commas
-                    assert len(comma_split) == 2
-                    additional_weekday_ranges = _process_weekday_range(comma_split[0])
-                    restaurants.extend(_process_csv(comma_split[1], name, additional_weekday_ranges))
+                # Weekday range
+                weekday_range = _process_weekday_range(split_hour)
+
+                # Time Processing
+                open_time, open_time_am_pm, close_time, close_time_am_pm = _process_time(split_hour)
+
+                # Build Weekdays
+                restaurants.extend(
+                    _build_restaurants(name, weekday_range, open_time, open_time_am_pm, close_time, close_time_am_pm)
+                )
 
     return restaurants
 
@@ -49,20 +52,28 @@ def csv_import():
 def _process_weekday_range(weekday_range: str):
     weekdays: list[int] = []
 
-    if "-" in weekday_range:
-        weekday_range_split = weekday_range.split("-")
-        assert len(weekday_range_split) == 2
-        start_weekday = cast(Literal["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"], weekday_range_split[0])
-        end_weekday = cast(Literal["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"], weekday_range_split[1])
-        weekdays = list(range(map_weekday_acronym_to_int(start_weekday), map_weekday_acronym_to_int(end_weekday) + 1))
-    else:
-        weekday = cast(Literal["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"], weekday_range)
-        weekdays = [map_weekday_acronym_to_int(weekday)]
+    comma_split = weekday_range.split(", ")
+    for split in comma_split:
+        space_split = split.split(" ")
+        split = space_split[0]
+
+        if "-" in split:
+            weekday_range_split = split.split("-")
+            if len(weekday_range_split) < 2:
+                raise ValueError("weekday_range_split was less than 2 despite having a -")
+
+            start_weekday = cast(T, weekday_range_split[0])
+            end_weekday = cast(T, weekday_range_split[1])
+            weekdays.extend(
+                list(range(map_weekday_acronym_to_int(start_weekday), map_weekday_acronym_to_int(end_weekday) + 1))
+            )
+        else:
+            weekdays.append(map_weekday_acronym_to_int(cast(T, split)))
 
     return weekdays
 
 
-def _process_time(time_str: str, am_pm: str):
+def _parse_time(time_str: str, am_pm: str):
     # Check for Colon
     colon_split = time_str.split(":")
     if len(colon_split) == 2:
@@ -83,27 +94,29 @@ def _process_time(time_str: str, am_pm: str):
     return return_time
 
 
-def _process_csv(csv_data: str, name: str, additional_weekday_ranges: Optional[list[int]] = None):
+def _process_time(time_str: str) -> tuple[time, str, time, str]:
+    # Time Processing
+    space_split = time_str.split(" ")
+    if len(space_split) < 6:
+        raise ValueError("Length of time split was not 6 or more")
+
+    ## Open Time
+    open_time_am_pm = space_split[-4]
+    open_time = _parse_time(space_split[-5], open_time_am_pm)
+
+    ## Close Time
+    close_time_am_pm = space_split[-1]
+    close_time = _parse_time(space_split[-2], close_time_am_pm)
+
+    return open_time, open_time_am_pm, close_time, close_time_am_pm
+
+
+def _build_restaurants(
+    name: str, weekday_range: list[int], open_time: time, open_time_am_pm: str, close_time: time, close_time_am_pm: str
+):
     restaurants: list[Restaurant] = []
 
-    space_split = csv_data.split(" ")
-    assert len(space_split) == 6
-
-    # Weekdays
-    weekdays = _process_weekday_range(space_split[0])
-    if additional_weekday_ranges:
-        weekdays.extend(additional_weekday_ranges)
-
-    # Open Time
-    open_time_am_pm = space_split[2]
-    open_time = _process_time(space_split[1], open_time_am_pm)
-
-    # Close Time
-    close_time_am_pm = space_split[5]
-    close_time = _process_time(space_split[4], close_time_am_pm)
-
-    # Build Restaurant
-    for weekday in weekdays:
+    for weekday in weekday_range:
         close_weekday = weekday
         # If open time is PM and close time is AM
         # or if open time is AM and close time is AM and open time is greater than close time
