@@ -24,10 +24,10 @@ def map_weekday_acronym_to_int(acronym: T):
     return result
 
 
-def csv_import():
+def csv_import(file_path: str):
     restaurants: list[Restaurant] = []
 
-    with open(Path("alembic/restaurants.csv").resolve(), newline="", encoding="utf-8") as csvfile:
+    with open(Path(file_path).resolve(), newline="", encoding="utf-8") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             name = cast(str, row["Restaurant Name"])

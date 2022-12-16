@@ -19,7 +19,7 @@ down_revision = "11b40de5c0cb"
 branch_labels = None
 depends_on = None
 
-restaurants: list[Restaurant] = csv_import()
+restaurants: list[Restaurant] = csv_import("alembic/restaurants.csv")
 
 
 def upgrade() -> None:
