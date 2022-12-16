@@ -6,7 +6,7 @@
 #
 --trusted-host pypi.org
 
-alembic==1.8.1
+alembic==1.9.0
     # via
     #   -r requirements.in
     #   alembic-utils
