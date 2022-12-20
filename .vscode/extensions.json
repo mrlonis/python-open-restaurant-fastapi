@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "ms-python.black-formatter",
+    "streetsidesoftware.code-spell-checker",
+    "ms-azuretools.vscode-docker",
+    "editorconfig.editorconfig",
+    "visualstudioexptteam.vscodeintellicode",
+    "visualstudioexptteam.intellicode-api-usage-examples",
+    "ms-python.isort",
+    "ms-ossdata.vscode-postgresql",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "sonarsource.sonarlint-vscode"
+  ]
+}
