@@ -6,7 +6,7 @@ current_dir=$PWD
 project_name=$(basename "$current_dir")
 rm -rf ~/venvs/"$project_name"
 set -e # make sure we exit if this fails, otherwise we may corrupt the main environment
-python_exe="${PYTHON:-python3}"
+python_exe="${PYTHON:-python3.9:-python3}"
 $python_exe -m venv ~/venvs/"$project_name"
 source ~/venvs/"$project_name"/bin/activate
 set +e
