@@ -5,3 +5,4 @@ devtools
 isort
 pip-tools
 pre-commit
+uvicorn[standard]

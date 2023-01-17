@@ -9,4 +9,3 @@ pydantic
 sqlalchemy[asyncio]
 sqlalchemy-utils
 sqlmodel
-uvicorn[standard]
