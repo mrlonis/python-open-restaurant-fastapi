@@ -14,7 +14,7 @@ repos:
     hooks:
       - id: pylint
         name: pylint
-        entry: scripts/ensure_venv.sh
+        entry: utility-repo-scripts/ensure_venv.sh
         language: script
         types: [python]
         exclude: ^alembic/
