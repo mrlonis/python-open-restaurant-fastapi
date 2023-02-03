@@ -26,7 +26,7 @@ fastapi==0.89.1
     # via -r requirements.in
 flupy==1.2.0
     # via alembic-utils
-greenlet==2.0.1
+greenlet==2.0.2
     # via sqlalchemy
 h11==0.14.0
     # via httpcore
@@ -40,7 +40,7 @@ idna==3.4
     #   rfc3986
 mako==1.2.4
     # via alembic
-markupsafe==2.1.1
+markupsafe==2.1.2
     # via mako
 parse==1.19.0
     # via alembic-utils
@@ -67,7 +67,7 @@ sqlalchemy[asyncio]==1.4.46
     #   sqlmodel
 sqlalchemy-utils==0.39.0
     # via -r requirements.in
-sqlalchemy2-stubs==0.0.2a31
+sqlalchemy2-stubs==0.0.2a32
     # via sqlmodel
 sqlmodel==0.0.6
     # via -r requirements.in
