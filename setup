@@ -1,3 +1,5 @@
 #!/bin/bash
 git submodule update --init --remote
-source utility-repo-scripts/setup_python_app.sh -d 1 -s 1 -l 1
+rebuild_venv=$1
+rebuild_venv="${rebuild_venv:-0}"
+source utility-repo-scripts/setup_python_app.sh -d 0 -s 1 -l 1 -v 2 -r "$rebuild_venv"

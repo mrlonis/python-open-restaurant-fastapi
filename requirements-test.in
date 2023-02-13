@@ -1,0 +1,11 @@
+-c requirements.txt
+coverage
+psycopg
+pylint
+pylint-junit
+pytest
+pytest-asyncio
+pytest-cov
+pytest-postgresql
+pytest-watch
+pytest-xdist[psutil]
