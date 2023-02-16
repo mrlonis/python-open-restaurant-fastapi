@@ -6,11 +6,11 @@
 #
 --trusted-host pypi.org
 
-alembic==1.9.3
+alembic==1.9.4
     # via
     #   -r requirements.in
     #   alembic-utils
-alembic-utils==0.8.0
+alembic-utils==0.8.1
     # via -r requirements.in
 anyio==3.6.2
     # via
@@ -22,7 +22,7 @@ certifi==2022.12.7
     # via
     #   httpcore
     #   httpx
-fastapi==0.91.0
+fastapi==0.92.0
     # via -r requirements.in
 flupy==1.2.0
     # via alembic-utils
@@ -46,7 +46,7 @@ parse==1.19.0
     # via alembic-utils
 psycopg2-binary==2.9.5
     # via -r requirements.in
-pydantic==1.10.4
+pydantic==1.10.5
     # via
     #   -r requirements.in
     #   fastapi
@@ -71,9 +71,9 @@ sqlalchemy2-stubs==0.0.2a32
     # via sqlmodel
 sqlmodel==0.0.6
     # via -r requirements.in
-starlette==0.24.0
+starlette==0.25.0
     # via fastapi
-typing-extensions==4.4.0
+typing-extensions==4.5.0
     # via
     #   alembic-utils
     #   flupy
