@@ -1,6 +1,6 @@
 [MASTER]
 
-# Mrlonis Custom Settings
+# mrlonis Custom Settings
 
 # Disable requirement for module (C0114), class (C0115), and function (C0116) docstring
 disable = C0114, C0115, C0116
@@ -12,7 +12,7 @@ load-plugins=pylint_junit
 # A comma-separated list of package or module names from where C extensions may
 # be loaded. Extensions are loading into the active Python interpreter and may
 # run arbitrary code.
-extension-pkg-whitelist=pydantic,alembic,sqlmodel
+extension-pkg-whitelist=pydantic
 
 # Specify a score threshold to be exceeded before program exits with error.
 fail-under=10.0
@@ -172,7 +172,7 @@ contextmanager-decorators=contextlib.contextmanager
 # List of members which are set dynamically and missed by pylint inference
 # system, and so shouldn't trigger E1101 when accessed. Python regular
 # expressions are accepted.
-generated-members=alembic,context,sqlalchemy,sqlmodel,op
+generated-members=
 
 # Tells whether missing members accessed in mixin class should be ignored. A
 # mixin class is detected if its name ends with "mixin" (case insensitive).
@@ -520,5 +520,5 @@ min-public-methods=2
 
 # Exceptions that will emit a warning when being caught. Defaults to
 # "BaseException, Exception".
-overgeneral-exceptions=BaseException,
-                       Exception
+overgeneral-exceptions=builtins.BaseException,
+                       builtins.Exception
