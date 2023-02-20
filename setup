@@ -10,7 +10,8 @@ source utility-repo-scripts/setup_python_app.sh \
 	--is_package=0 \
 	--include_isort=1 \
 	--python_formatter=black \
-	--python_linter=pylint \
+	--pylint_enabled=1 \
+	--flake8_enabled=1 \
 	--python_testing_framework=pytest \
 	--overwrite_vscode_settings=1 \
 	--overwrite_vscode_launch=1 \
