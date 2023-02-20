@@ -6,6 +6,7 @@ source utility-repo-scripts/setup_python_app.sh \
 	--debug=1 \
 	--setup_version=2 \
 	--rebuild_venv="$rebuild_venv" \
+	--python_version=3.10 \
 	--is_package=0 \
 	--include_jumanji_house=0 \
 	--include_prettier=0 \
