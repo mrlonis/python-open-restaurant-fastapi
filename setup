@@ -13,7 +13,8 @@ source utility-repo-scripts/setup_python_app.sh \
 	--pylint_enabled=1 \
 	--flake8_enabled=1 \
 	--pydocstyle_enabled=0 \
-	--python_testing_framework=pytest \
+	--pytest_enabled=1 \
+	--unittest_enabled=0 \
 	--overwrite_vscode_settings=1 \
 	--overwrite_vscode_launch=1 \
 	--overwrite_pre_commit_config=1 \
