@@ -10,7 +10,10 @@ def db_session(request) -> str:
     # create and run postgres for the test (requires postgres to be installed
     # and available on the path)
     fix = request.getfixturevalue("postgresql")
-    connection = f"postgresql+asyncpg://{fix.info.user}:{fix.info.password}@{fix.info.host}:{fix.info.port}/{fix.info.dbname}"  # pylint: disable=line-too-long
+    print(fix.info)
+    connection = (
+        f"postgresql+asyncpg://{fix.info.user}:{fix.info.password}@" + f"{fix.info.host}:{fix.info.port}/{fix.info.dbname}"
+    )
     return connection
 
 

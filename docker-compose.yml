@@ -1,8 +1,9 @@
 version: '3.8'
 
 services:
-  web:
+  api:
     build: .
+    image: python-open-restaurant-api
     volumes:
       - .:/app
     ports:
@@ -13,13 +14,15 @@ services:
       - postgresql
 
   postgresql:
-    image: postgres
+    image: postgres:14
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     ports:
-      - 5432:5432
+      - 5498:5432
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: postgres
 
 volumes:
   postgres_data:
