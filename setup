@@ -13,8 +13,4 @@ source utility-repo-scripts/setup_python_app.sh \
 	--pytest_enabled \
 	--overwrite_vscode_settings \
 	--overwrite_vscode_launch \
-	--overwrite_pre_commit_config \
-	--overwrite_pylintrc \
-	--overwrite_flake8 \
-	--overwrite_pyproject_toml \
 	--line_length=125
