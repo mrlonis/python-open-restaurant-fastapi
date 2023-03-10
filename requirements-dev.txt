@@ -16,14 +16,24 @@ black==23.1.0
     # via -r requirements-dev.in
 build==0.10.0
     # via pip-tools
+cachetools==5.3.0
+    # via tox
 cfgv==3.3.1
     # via pre-commit
+chardet==5.1.0
+    # via tox
 click==8.1.3
     # via
     #   -r requirements-dev.in
     #   black
     #   pip-tools
     #   uvicorn
+colorama==0.4.6
+    # via
+    #   -c requirements-test.txt
+    #   tox
+configupdater==3.1.1
+    # via -r requirements-dev.in
 devtools==0.10.0
     # via -r requirements-dev.in
 distlib==0.3.6
@@ -31,7 +41,9 @@ distlib==0.3.6
 executing==1.2.0
     # via devtools
 filelock==3.9.0
-    # via virtualenv
+    # via
+    #   tox
+    #   virtualenv
 h11==0.14.0
     # via
     #   -c requirements.txt
@@ -55,6 +67,8 @@ packaging==23.0
     #   -c requirements-test.txt
     #   black
     #   build
+    #   pyproject-api
+    #   tox
 pathspec==0.11.0
     # via black
 pip-tools==6.12.3
@@ -63,9 +77,16 @@ platformdirs==3.1.0
     # via
     #   -c requirements-test.txt
     #   black
+    #   tox
     #   virtualenv
+pluggy==1.0.0
+    # via
+    #   -c requirements-test.txt
+    #   tox
 pre-commit==3.1.1
     # via -r requirements-dev.in
+pyproject-api==1.5.0
+    # via tox
 pyproject-hooks==1.0.0
     # via build
 python-dotenv==1.0.0
@@ -74,6 +95,10 @@ pyyaml==6.0
     # via
     #   pre-commit
     #   uvicorn
+ruamel-yaml==0.17.21
+    # via -r requirements-dev.in
+ruamel-yaml-clib==0.2.7
+    # via ruamel-yaml
 six==1.16.0
     # via
     #   -c requirements-test.txt
@@ -87,13 +112,21 @@ tomli==2.0.1
     #   -c requirements-test.txt
     #   black
     #   build
+    #   pyproject-api
     #   pyproject-hooks
+    #   tox
+tomlkit==0.11.6
+    # via -r requirements-dev.in
+tox==4.4.6
+    # via -r requirements-dev.in
 uvicorn[standard]==0.21.0
     # via -r requirements-dev.in
 uvloop==0.17.0
     # via uvicorn
 virtualenv==20.20.0
-    # via pre-commit
+    # via
+    #   pre-commit
+    #   tox
 watchfiles==0.18.1
     # via uvicorn
 websockets==10.4

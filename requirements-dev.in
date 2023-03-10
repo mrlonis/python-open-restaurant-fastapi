@@ -2,8 +2,12 @@
 -c requirements-test.txt
 black
 click
+configupdater
 devtools
 isort
 pip-tools
 pre-commit
+ruamel-yaml
+tomlkit
+tox
 uvicorn[standard]
