@@ -1,5 +1,6 @@
 -c requirements.txt
 coverage
+flake8
 psycopg
 pylint
 pylint-junit
