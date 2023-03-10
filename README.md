@@ -1,6 +1,17 @@
 # python-open-restaurant-fastapi
 
-Demo API with one route that takes a datetime string and returns open restaurants, if any
+Demo API using fastapi with one route that takes a datetime string and returns open restaurants, if any
+
+## Table of Contents
+
+- [python-open-restaurant-fastapi](#python-open-restaurant-fastapi)
+  - [Table of Contents](#table-of-contents)
+  - [Pre-requisites](#pre-requisites)
+    - [.env File](#env-file)
+    - [Docker](#docker)
+    - [Alembic Database Migrations](#alembic-database-migrations)
+  - [Testing](#testing)
+  - [CSV Row Totals](#csv-row-totals)
 
 ## Pre-requisites
 
