@@ -4,13 +4,9 @@ from typing import Optional
 from fastapi import Depends, FastAPI
 from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
-from sqlmodel.sql.expression import Select, SelectOfScalar
 
 from app.database.db import get_session
 from app.database.models import Restaurant
-
-SelectOfScalar.inherit_cache = True  # type: ignore
-Select.inherit_cache = True  # type: ignore
 
 
 def load_routes(app: FastAPI):

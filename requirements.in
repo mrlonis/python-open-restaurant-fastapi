@@ -8,4 +8,4 @@ psycopg2-binary
 pydantic
 sqlalchemy[asyncio]
 sqlalchemy-utils
-sqlmodel
+sqlmodel>=0.0.8

@@ -41,6 +41,15 @@ jobs:
       - name: Pylint
         run: pylint app tests
 
+      - name: Alembic
+        run: alembic upgrade head
+        env:
+          DATABASE_USER: postgres
+          DATABASE_PASSWORD: 123456
+          DATABASE_HOST: localhost
+          DATABASE_PORT: 5498
+          DATABASE_NAME: postgres
+
       - name: Pytest
         run: pytest -n auto -m "not docker"
         env:

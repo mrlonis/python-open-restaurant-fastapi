@@ -7,15 +7,11 @@ Create Date: 2022-12-07 21:44:33.106323
 
 """
 from sqlmodel import Session, create_engine, select
-from sqlmodel.sql.expression import Select, SelectOfScalar
 
 from app.config.database_settings import DatabaseSettings
 from app.database.db import assemble_database_url
 from app.database.models import Restaurant
 from app.utils.csv_utils import csv_import
-
-SelectOfScalar.inherit_cache = True  # type: ignore
-Select.inherit_cache = True  # type: ignore
 
 database_settings = DatabaseSettings()
 
