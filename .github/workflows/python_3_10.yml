@@ -42,7 +42,7 @@ jobs:
         run: pylint app tests
 
       - name: Pytest
-        run: poetry run pytest -n auto -m "not docker"
+        run: pytest -n auto -m "not docker"
         env:
           DATABASE_USER: postgres
           DATABASE_PASSWORD: 123456

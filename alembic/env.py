@@ -4,8 +4,9 @@ from sqlalchemy import engine_from_config, pool
 from sqlmodel import SQLModel
 
 from alembic import context
-from app.config import DatabaseSettings
-from app.database import Restaurant, assemble_database_url  # pylint: disable=unused-import
+from app.config.database_settings import DatabaseSettings
+from app.database.db import assemble_database_url
+from app.database.models import Restaurant  # noqa: F401; pylint: disable=unused-import
 
 database_settings = DatabaseSettings()
 

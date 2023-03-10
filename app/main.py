@@ -1,9 +1,9 @@
 import logging
 
-from .app_init import AppInitializer
-from .config import DatabaseSettings
-from .database import assemble_database_url
-from .utils import configure_logging
+from app.app_init import AppInitializer
+from app.config.database_settings import DatabaseSettings
+from app.database.db import assemble_database_url
+from app.utils.log_utils import configure_logging
 
 configure_logging()
 

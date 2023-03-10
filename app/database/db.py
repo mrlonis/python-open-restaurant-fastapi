@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import NullPool
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from ..config import DatabaseSettings
+from ..config.database_settings import DatabaseSettings
 
 database_settings = DatabaseSettings()
 

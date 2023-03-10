@@ -3,7 +3,7 @@ from datetime import time
 from pathlib import Path
 from typing import Literal, cast
 
-from ..database import Restaurant
+from app.database.models import Restaurant
 
 T = Literal["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"]  # pylint: disable=invalid-name
 
@@ -100,11 +100,11 @@ def _process_time(time_str: str) -> tuple[time, str, time, str]:
     if len(space_split) < 6:
         raise ValueError("Length of time split was not 6 or more")
 
-    ## Open Time
+    # Open Time
     open_time_am_pm = space_split[-4]
     open_time = _parse_time(space_split[-5], open_time_am_pm)
 
-    ## Close Time
+    # Close Time
     close_time_am_pm = space_split[-1]
     close_time = _parse_time(space_split[-2], close_time_am_pm)
 
@@ -124,7 +124,6 @@ def _build_restaurants(
         if (close_time_am_pm == "am" and open_time_am_pm == "pm") or (
             open_time_am_pm == "am" and close_time_am_pm == "am" and open_time.hour > close_time.hour
         ):
-
             close_weekday += 1
 
             # If close weekday is 7, set to 0
