@@ -6,6 +6,8 @@ import pytest
 
 from app.database.models import Restaurant
 
+pytestmark = [pytest.mark.docker]
+
 
 def test_docker_api_root_path():
     response = httpx.get("http://0.0.0.0:8008")

@@ -38,7 +38,7 @@ h11==0.14.0
     #   uvicorn
 httptools==0.5.0
     # via uvicorn
-identify==2.5.18
+identify==2.5.19
     # via pre-commit
 idna==3.4
     # via
@@ -57,18 +57,18 @@ packaging==23.0
     #   build
 pathspec==0.11.0
     # via black
-pip-tools==6.12.2
+pip-tools==6.12.3
     # via -r requirements-dev.in
-platformdirs==3.0.0
+platformdirs==3.1.0
     # via
     #   -c requirements-test.txt
     #   black
     #   virtualenv
-pre-commit==3.1.0
+pre-commit==3.1.1
     # via -r requirements-dev.in
 pyproject-hooks==1.0.0
     # via build
-python-dotenv==0.21.1
+python-dotenv==1.0.0
     # via uvicorn
 pyyaml==6.0
     # via
@@ -88,11 +88,11 @@ tomli==2.0.1
     #   black
     #   build
     #   pyproject-hooks
-uvicorn[standard]==0.20.0
+uvicorn[standard]==0.21.0
     # via -r requirements-dev.in
 uvloop==0.17.0
     # via uvicorn
-virtualenv==20.19.0
+virtualenv==20.20.0
     # via pre-commit
 watchfiles==0.18.1
     # via uvicorn

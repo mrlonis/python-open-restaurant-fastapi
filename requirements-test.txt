@@ -6,13 +6,13 @@
 #
 --trusted-host pypi.org
 
-astroid==2.14.2
+astroid==2.15.0
     # via pylint
 attrs==22.2.0
     # via pytest
 colorama==0.4.6
     # via pytest-watch
-coverage==7.2.0
+coverage==7.2.1
     # via
     #   -r requirements-test.in
     #   pytest-cov
@@ -34,11 +34,11 @@ lazy-object-proxy==1.9.0
     # via astroid
 mccabe==0.7.0
     # via pylint
-mirakuru==2.5.0
+mirakuru==2.5.1
     # via pytest-postgresql
 packaging==23.0
     # via pytest
-platformdirs==3.0.0
+platformdirs==3.1.0
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -50,13 +50,13 @@ psutil==5.9.4
     #   pytest-xdist
 psycopg==3.1.8
     # via -r requirements-test.in
-pylint==2.16.2
+pylint==2.17.0
     # via
     #   -r requirements-test.in
     #   pylint-junit
 pylint-junit==0.3.2
     # via -r requirements-test.in
-pytest==7.2.1
+pytest==7.2.2
     # via
     #   -r requirements-test.in
     #   pytest-asyncio
@@ -88,9 +88,9 @@ typing-extensions==4.5.0
     #   -c requirements.txt
     #   astroid
     #   psycopg
-watchdog==2.2.1
+watchdog==2.3.1
     # via pytest-watch
-wrapt==1.14.1
+wrapt==1.15.0
     # via astroid
 
 # The following packages are considered to be unsafe in a requirements file:

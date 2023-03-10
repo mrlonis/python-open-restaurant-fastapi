@@ -1,20 +1,13 @@
 version: '3.8'
 
 services:
-  api:
-    build: .
-    image: python-open-restaurant-api
-    volumes:
-      - .:/app
-    ports:
-      - 8008:8008
-    environment:
-      DATABASE_URL: postgresql://postgres:123456@db:5432/postgres
-    depends_on:
-      - postgresql
-
   postgresql:
     image: postgres:14
+    healthcheck:
+      test: [ 'CMD', 'pg_isready', '-U', 'postgres' ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     ports:
@@ -23,6 +16,23 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: postgres
+
+  api:
+    build: .
+    image: python-open-restaurant-api
+    healthcheck:
+      test: curl --fail http://localhost:8008 || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - .:/app
+    ports:
+      - 8008:8008
+    environment:
+      DATABASE_URL: postgresql://postgres:123456@db:5432/postgres
+    depends_on:
+      - postgresql
 
 volumes:
   postgres_data:

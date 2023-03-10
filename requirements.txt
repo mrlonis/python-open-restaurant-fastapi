@@ -6,7 +6,7 @@
 #
 --trusted-host pypi.org
 
-alembic==1.9.4
+alembic==1.10.2
     # via
     #   -r requirements.in
     #   alembic-utils
@@ -22,7 +22,7 @@ certifi==2022.12.7
     # via
     #   httpcore
     #   httpx
-fastapi==0.92.0
+fastapi==0.93.0
     # via -r requirements.in
 flupy==1.2.0
     # via alembic-utils
@@ -46,7 +46,7 @@ parse==1.19.0
     # via alembic-utils
 psycopg2-binary==2.9.5
     # via -r requirements.in
-pydantic==1.10.5
+pydantic==1.10.6
     # via
     #   -r requirements.in
     #   fastapi
@@ -75,6 +75,7 @@ starlette==0.25.0
     # via fastapi
 typing-extensions==4.5.0
     # via
+    #   alembic
     #   alembic-utils
     #   flupy
     #   pydantic
