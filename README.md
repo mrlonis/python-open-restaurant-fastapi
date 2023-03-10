@@ -1,4 +1,4 @@
-# python-open-restaurant-api
+# python-open-restaurant-fastapi
 
 Demo API with one route that takes a datetime string and returns open restaurants, if any
 

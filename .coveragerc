@@ -22,6 +22,6 @@ sort = Name
 [html]
 directory = ./htmlcov
 skip_empty = True
-title = python-open-restaurant-api Coverage Report
+title = python-open-restaurant-fastapi Coverage Report
 [xml]
 output = ./junit/coverage.xml
