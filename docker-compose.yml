@@ -9,7 +9,7 @@ services:
       timeout: 5s
       retries: 10
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgresql_data:/var/lib/postgresql/data/
     ports:
       - 5498:5432
     environment:
@@ -35,5 +35,5 @@ services:
       - postgresql
 
 volumes:
-  postgres_data:
+  postgresql_data:
     driver: local

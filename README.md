@@ -10,6 +10,7 @@ Demo API using fastapi with one route that takes a datetime string and returns o
     - [.env File](#env-file)
     - [Docker](#docker)
     - [Alembic Database Migrations](#alembic-database-migrations)
+  - [Linting](#linting)
   - [Testing](#testing)
   - [CSV Row Totals](#csv-row-totals)
 
@@ -17,15 +18,7 @@ Demo API using fastapi with one route that takes a datetime string and returns o
 
 ### .env File
 
-Create a .env file in the root directory with the following variables:
-
-```sh
-DATABASE_USER=postgres
-DATABASE_PASSWORD=123456
-DATABASE_HOST=localhost
-DATABASE_PORT=5432
-DATABASE_NAME=postgres
-```
+Create a .env file in the root directory of your project based off of the `.env.sample` file.
 
 ### Docker
 
@@ -43,9 +36,18 @@ Once the database is up, we need to perform the database migration. To do this, 
 alembic upgrade head
 ```
 
+## Linting
+
+To lint the project, run the following commands:
+
+```shell
+flake8 app tests
+pylint app tests
+```
+
 ## Testing
 
-To run the tests, be sure you have ran the [Docker Compose Command](#docker) and the [Alembic Database Migrations](#alembic-database-migrations) and then run the following command:
+To run the tests, be sure you have ran the [Docker Compose Command](#docker) and the [Alembic Database Migrations](#alembic-database-migrations), then run the following command:
 
 ```sh
 pytest --cov --cov-report=html -n auto
