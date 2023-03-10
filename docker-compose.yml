@@ -19,7 +19,7 @@ services:
 
   api:
     build: .
-    image: python-open-restaurant-api
+    image: python-open-restaurant-fastapi
     healthcheck:
       test: curl --fail http://localhost:8008 || exit 1
       interval: 5s
