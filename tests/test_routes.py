@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import Any, Union, cast
 
 import pytest
 from fastapi.testclient import TestClient
@@ -34,13 +33,9 @@ def test_restaurants_route_with_datetime_param(test_client_module: TestClient):
 
     # Thursday December 8th - No Time
     response = client.get("/restaurants?date=2022-12-08")
-    assert response.status_code == 422
-    response_json = cast(dict[str, Any], response.json())
-    detail_json = cast(Union[list[dict[str, Any]], None], response_json.get("detail"))
-    assert detail_json is not None
-    assert len(detail_json) == 1
-    detail_json_item = detail_json[0]
-    assert detail_json_item.get("msg") == "invalid datetime format"
+    assert response.status_code == 200
+    restaurants: list[dict] = response.json()
+    assert len(restaurants) == 5
 
     # Thursday December 8th, 12:00 AM
     param = datetime(2022, 12, 8, 0, 0)

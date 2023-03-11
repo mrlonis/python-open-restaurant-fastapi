@@ -15,12 +15,13 @@ def load_routes(app: FastAPI):
         return {"Hello": "World"}
 
     @app.get("/restaurants")
-    async def get_open_restaurants(date: Optional[datetime] = None, session: AsyncSession = Depends(get_session)):
+    async def get_open_restaurants(date: Optional[str] = None, session: AsyncSession = Depends(get_session)):
         statement = select(Restaurant)
 
         if date:
-            query_time = date.time()
-            weekday = date.weekday()
+            date_value = datetime.fromisoformat(date)
+            query_time = date_value.time()
+            weekday = date_value.weekday()
 
             statement = statement.where(
                 (
