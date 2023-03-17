@@ -33,7 +33,7 @@ docker compose up --build --pull postgresql --remove-orphans -V --wait
 Once the database is up, we need to perform the database migration. To do this, run the following command:
 
 ```sh
-alembic upgrade head
+poetry run alembic upgrade head
 ```
 
 ## Linting
@@ -41,8 +41,8 @@ alembic upgrade head
 To lint the project, run the following commands:
 
 ```shell
-flake8 app tests
-pylint app tests
+poetry run flake8 app tests
+poetry run pylint app tests
 ```
 
 ## Testing
@@ -50,7 +50,7 @@ pylint app tests
 To run the tests, be sure you have ran the [Docker Compose Command](#docker) and the [Alembic Database Migrations](#alembic-database-migrations), then run the following command:
 
 ```sh
-pytest --cov --cov-report=html -n auto
+poetry run pytest --cov --cov-report=html -n auto
 ```
 
 This will run the tests using xdist on multiple threads and generate a coverage report in the htmlcov directory.

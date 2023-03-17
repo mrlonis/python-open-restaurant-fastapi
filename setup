@@ -4,7 +4,7 @@ rebuild_venv=$1
 rebuild_venv="${rebuild_venv:-0}"
 source utility-repo-scripts/setup_python_app.sh \
 	--debug \
-	--package_manager="pip-tools" \
+	--package_manager="poetry" \
 	--rebuild_venv="$rebuild_venv" \
 	--python_version="3.10" \
 	--include_isort \
