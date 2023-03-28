@@ -1,7 +1,6 @@
 {
   "recommendations": [
     "ms-python.black-formatter",
-    "streetsidesoftware.code-spell-checker",
     "ms-azuretools.vscode-docker",
     "editorconfig.editorconfig",
     "visualstudioexptteam.vscodeintellicode",
@@ -10,6 +9,7 @@
     "ms-ossdata.vscode-postgresql",
     "ms-python.vscode-pylance",
     "ms-python.python",
-    "sonarsource.sonarlint-vscode"
+    "sonarsource.sonarlint-vscode",
+    "streetsidesoftware.code-spell-checker"
   ]
 }
