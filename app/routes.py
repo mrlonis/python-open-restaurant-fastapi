@@ -34,8 +34,8 @@ def load_routes(app: FastAPI):
                 ),
             )
 
-        result = await session.execute(statement)
-        restaurants = result.scalars().all()
+        result = await session.exec(statement)
+        restaurants = result.all()
         return [
             Restaurant(
                 id=restaurant.id,

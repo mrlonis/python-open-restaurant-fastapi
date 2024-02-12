@@ -8,7 +8,7 @@ RUN apt-get update --fix-missing \
 RUN pip install --upgrade pip
 
 # Configure Poetry
-ENV POETRY_VERSION=1.4.0
+ENV POETRY_VERSION=1.7.1
 ENV POETRY_HOME=/opt/poetry
 ENV POETRY_VENV=/opt/poetry-venv
 ENV POETRY_CACHE_DIR=/opt/.cache

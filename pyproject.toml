@@ -5,45 +5,46 @@ description = ""
 authors = ["Matthew Lonis <mattlonis@gmail.com>"]
 license = "The Unlicense"
 readme = "README.md"
-packages = [{include = "python_open_restaurant_fastapi"}]
+packages = [{ include = "python_open_restaurant_fastapi" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-alembic = "^1.10.2"
-alembic-utils = "^0.8.1"
-asyncpg = "^0.27.0"
-fastapi = "^0.94.1"
-httpx = "^0.23.3"
+alembic = "^1.13.1"
+alembic-utils = "^0.8.2"
+asyncpg = "^0.29.0"
+fastapi = "^0.109.2"
+httpx = "^0.26.0"
 psycopg2-binary = "^2.9.5"
-pydantic = "^1.10.6"
-sqlalchemy = { version = "^1.4.41", extras = [ "asyncio" ] }
-sqlalchemy-utils = "^0.40.0"
-sqlmodel = "^0.0.8"
+pydantic = "^2.6.1"
+pydantic-settings = "^2.1.0"
+sqlalchemy = { version = "^2.0.25", extras = ["asyncio"] }
+sqlalchemy-utils = "^0.41.1"
+sqlmodel = "^0.0.14"
 
 [tool.poetry.group.test.dependencies]
 coverage = "^7.2.2"
-flake8 = "^6.0.0"
+flake8 = "^7.0.0"
 psycopg = "^3.1.8"
-pylint = "^2.16.3"
-pylint-junit = "^0.3.2"
-pytest = "^7.2.2"
-pytest-asyncio = "^0.20.3"
-pytest-cov = "^4.0.0"
-pytest-postgresql = "^4.1.1"
+pylint = "^3.0.3"
+pylint-junit = "^0.3.4"
+pytest = "^8.0.0"
+pytest-asyncio = "^0.23.5"
+pytest-cov = "^4.1.0"
+pytest-postgresql = "^5.1.0"
 pytest-watch = "^4.2.0"
-pytest-xdist = {version = "^3.2.1", extras = ["psutil"]}
+pytest-xdist = { version = "^3.2.1", extras = ["psutil"] }
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.1.0"
+black = "^24.1.1"
 click = "^8.1.3"
 configupdater = "^3.1.1"
-devtools = "^0.10.0"
+devtools = "^0.12.2"
 isort = "^5.12.0"
 pre-commit = "^3.1.1"
-ruamel-yaml = "^0.17.21"
-tomlkit = "^0.11.6"
+ruamel-yaml = "^0.18.6"
+tomlkit = "^0.12.3"
 tox = "^4.4.7"
-uvicorn = { version = "^0.21.1", extras = [ "standard" ] }
+uvicorn = { version = "^0.27.1", extras = ["standard"] }
 
 [build-system]
 requires = ["poetry-core"]
@@ -62,6 +63,7 @@ log_cli = false
 log_cli_level = "WARNING"
 log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
 log_cli_date_format = "%Y-%m-%d %H:%M:%S"
-markers = [
-    "docker: marks tests as docker (deselect with '-m \"not docker\"')",
-]
+markers = ["docker: marks tests as docker (deselect with '-m \"not docker\"')"]
+
+[tool.mypy]
+plugins = "pydantic.mypy"

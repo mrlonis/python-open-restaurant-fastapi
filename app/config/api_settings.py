@@ -1,9 +1,8 @@
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class ApiSettings(BaseSettings):
     # pylint: disable=too-few-public-methods
-    log_level: str = "INFO"
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    class Config:
-        env_file = ".env"
+    log_level: str = "INFO"

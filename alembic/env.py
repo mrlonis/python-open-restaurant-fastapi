@@ -44,7 +44,7 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = assemble_database_url(database_settings)
+    url = assemble_database_url(database_settings).unicode_string()
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -64,7 +64,7 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    url = assemble_database_url(database_settings, False)
+    url = assemble_database_url(database_settings, False).unicode_string()
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),  # type: ignore
         prefix="sqlalchemy.",

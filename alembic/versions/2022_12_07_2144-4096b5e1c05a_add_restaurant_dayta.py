@@ -25,7 +25,7 @@ restaurants: list[Restaurant] = csv_import("alembic/restaurants.csv")
 
 
 def upgrade() -> None:
-    engine = create_engine(assemble_database_url(database_settings, False))
+    engine = create_engine(assemble_database_url(database_settings, False).unicode_string())
 
     with Session(engine) as session:
         for restaurant in restaurants:
@@ -34,7 +34,7 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    engine = create_engine(assemble_database_url(database_settings, False))
+    engine = create_engine(assemble_database_url(database_settings, False).unicode_string())
 
     with Session(engine) as session:
         for restaurant in restaurants:
