@@ -16,7 +16,7 @@ def assemble_database_url(settings: DatabaseSettings, as_async: bool = True):
 
     scheme = "postgresql+asyncpg" if as_async else "postgresql"
     # pylint: disable=no-member
-    return PostgresDsn.build(
+    return PostgresDsn.build(  # type: ignore
         scheme=scheme,
         username=settings.user,
         password=settings.password,
