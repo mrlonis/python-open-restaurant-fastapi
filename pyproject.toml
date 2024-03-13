@@ -12,14 +12,14 @@ python = "^3.10"
 alembic = "^1.13.1"
 alembic-utils = "^0.8.2"
 asyncpg = "^0.29.0"
-fastapi = "^0.109.2"
-httpx = "^0.26.0"
+fastapi = "^0.110.0"
+httpx = "^0.27.0"
 psycopg2-binary = "^2.9.5"
 pydantic = "^2.6.1"
 pydantic-settings = "^2.1.0"
 sqlalchemy = { version = "^2.0.25", extras = ["asyncio"] }
 sqlalchemy-utils = "^0.41.1"
-sqlmodel = "^0.0.14"
+sqlmodel = "^0.0.16"
 
 [tool.poetry.group.test.dependencies]
 coverage = "^7.2.2"
@@ -30,7 +30,7 @@ pylint-junit = "^0.3.4"
 pytest = "^8.0.0"
 pytest-asyncio = "^0.23.5"
 pytest-cov = "^4.1.0"
-pytest-postgresql = "^5.1.0"
+pytest-postgresql = "^6.0.0"
 pytest-watch = "^4.2.0"
 pytest-xdist = { version = "^3.2.1", extras = ["psutil"] }
 
@@ -44,7 +44,7 @@ pre-commit = "^3.1.1"
 ruamel-yaml = "^0.18.6"
 tomlkit = "^0.12.3"
 tox = "^4.4.7"
-uvicorn = { version = "^0.27.1", extras = ["standard"] }
+uvicorn = { version = "^0.28.0", extras = ["standard"] }
 
 [build-system]
 requires = ["poetry-core"]
