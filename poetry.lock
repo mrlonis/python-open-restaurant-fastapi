@@ -1819,13 +1819,13 @@ url = ["furl (>=0.4.1)"]
 
 [[package]]
 name = "sqlmodel"
-version = "0.0.21"
+version = "0.0.22"
 description = "SQLModel, SQL databases in Python, designed for simplicity, compatibility, and robustness."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "sqlmodel-0.0.21-py3-none-any.whl", hash = "sha256:eca104afe8a643f0764076b29f02e51d19d6b35c458f4c119942960362a4b52a"},
-    {file = "sqlmodel-0.0.21.tar.gz", hash = "sha256:b2034c23d930f66d2091b17a4280a9c23a7ea540a71e7fcf9c746d262f06f74a"},
+    {file = "sqlmodel-0.0.22-py3-none-any.whl", hash = "sha256:a1ed13e28a1f4057cbf4ff6cdb4fc09e85702621d3259ba17b3c230bfb2f941b"},
+    {file = "sqlmodel-0.0.22.tar.gz", hash = "sha256:7d37c882a30c43464d143e35e9ecaf945d88035e20117bf5ec2834a23cbe505e"},
 ]
 
 [package.dependencies]
@@ -1834,13 +1834,13 @@ SQLAlchemy = ">=2.0.14,<2.1.0"
 
 [[package]]
 name = "starlette"
-version = "0.38.2"
+version = "0.38.4"
 description = "The little ASGI library that shines."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "starlette-0.38.2-py3-none-any.whl", hash = "sha256:4ec6a59df6bbafdab5f567754481657f7ed90dc9d69b0c9ff017907dd54faeff"},
-    {file = "starlette-0.38.2.tar.gz", hash = "sha256:c7c0441065252160993a1a37cf2a73bb64d271b17303e0b0c1eb7191cfb12d75"},
+    {file = "starlette-0.38.4-py3-none-any.whl", hash = "sha256:526f53a77f0e43b85f583438aee1a940fd84f8fd610353e8b0c1a77ad8a87e76"},
+    {file = "starlette-0.38.4.tar.gz", hash = "sha256:53a7439060304a208fea17ed407e998f46da5e5d9b1addfea3040094512a6379"},
 ]
 
 [package.dependencies]
@@ -2245,4 +2245,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "626dc1e61d4a302836b5db0df2ba779c49863fd9d9a688f52317f0556aadff41"
+content-hash = "83dcfe2ca7b0af3df8c24792f631c1d495899e3649c2834e0f134e9119c7ca6a"
