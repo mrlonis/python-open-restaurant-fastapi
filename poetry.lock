@@ -21,12 +21,12 @@ tz = ["backports.zoneinfo"]
 
 [[package]]
 name = "alembic-utils"
-version = "0.8.4"
+version = "0.8.5"
 description = "A sqlalchemy/alembic extension for migrating procedures and views"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "alembic_utils-0.8.4.tar.gz", hash = "sha256:825fad8091e5d780a026931b19c44ca007884f76d29221eda146441747a3435a"},
+    {file = "alembic_utils-0.8.5.tar.gz", hash = "sha256:afc192a6e4e9ecc262452e5525a12be0b830de01bc63622d2014f92005fc66cf"},
 ]
 
 [package.dependencies]
@@ -818,13 +818,13 @@ six = "*"
 
 [[package]]
 name = "mako"
-version = "1.3.5"
+version = "1.3.6"
 description = "A super-fast templating language that borrows the best ideas from the existing templating languages."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "Mako-1.3.5-py3-none-any.whl", hash = "sha256:260f1dbc3a519453a9c856dedfe4beb4e50bd5a26d96386cb6c80856556bb91a"},
-    {file = "Mako-1.3.5.tar.gz", hash = "sha256:48dbc20568c1d276a2698b36d968fa76161bf127194907ea6fc594fa81f943bc"},
+    {file = "Mako-1.3.6-py3-none-any.whl", hash = "sha256:a91198468092a2f1a0de86ca92690fb0cfc43ca90ee17e15d93662b4c04b241a"},
+    {file = "mako-1.3.6.tar.gz", hash = "sha256:9ec3a1583713479fae654f83ed9fa8c9a4c16b7bb0daba0e6bbebff50c0d983d"},
 ]
 
 [package.dependencies]
@@ -2279,4 +2279,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "0ac8fabeca8d2afbb7517fc3d57ba24798697835d95e0bbc59014caeb4e66792"
+content-hash = "8ca2b19d56149b633c353ff0492900259c4b3545971e898336a5e5988ef69fb2"
