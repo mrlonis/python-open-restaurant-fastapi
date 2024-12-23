@@ -37,7 +37,7 @@ pytest-xdist = { version = "^3.2.1", extras = ["psutil"] }
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.8.0"
-click = "^8.1.3"
+click = "^8.1.8"
 configupdater = "^3.1.1"
 devtools = "^0.12.2"
 isort = "^5.12.0"
