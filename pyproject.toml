@@ -23,7 +23,7 @@ sqlalchemy-utils = "^0.41.1"
 sqlmodel = "^0.0.22"
 
 [tool.poetry.group.test.dependencies]
-coverage = "^7.6.10"
+coverage = "^7.6.12"
 flake8 = "^7.1.1"
 psycopg = "^3.2.4"
 pylint = "^3.3.2"
