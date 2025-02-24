@@ -17,7 +17,7 @@ fastapi = "^0.115.8"
 httpx = "^0.28.1"
 psycopg2-binary = "^2.9.10"
 pydantic = "^2.10.6"
-pydantic-settings = "^2.7.1"
+pydantic-settings = "^2.8.0"
 sqlalchemy = { version = "^2.0.38", extras = ["asyncio"] }
 sqlalchemy-utils = "^0.41.1"
 sqlmodel = "^0.0.22"
