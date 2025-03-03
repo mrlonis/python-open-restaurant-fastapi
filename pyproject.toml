@@ -13,14 +13,14 @@ python = "^3.13.1"
 alembic = "^1.14.1"
 alembic-utils = "^0.8.6"
 asyncpg = "^0.30.0"
-fastapi = "^0.115.8"
+fastapi = "^0.115.11"
 httpx = "^0.28.1"
 psycopg2-binary = "^2.9.10"
 pydantic = "^2.10.6"
-pydantic-settings = "^2.8.0"
+pydantic-settings = "^2.8.1"
 sqlalchemy = { version = "^2.0.38", extras = ["asyncio"] }
 sqlalchemy-utils = "^0.41.1"
-sqlmodel = "^0.0.22"
+sqlmodel = "^0.0.23"
 
 [tool.poetry.group.test.dependencies]
 coverage = "^7.6.12"
