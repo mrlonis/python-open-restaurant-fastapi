@@ -226,14 +226,14 @@ files = [
 
 [[package]]
 name = "certifi"
-version = "2025.4.26"
+version = "2025.6.15"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 groups = ["main"]
 files = [
-    {file = "certifi-2025.4.26-py3-none-any.whl", hash = "sha256:30350364dfe371162649852c63336a15c70c6510c2ad5015b21c2345311805f3"},
-    {file = "certifi-2025.4.26.tar.gz", hash = "sha256:0a816057ea3cdefcef70270d2c515e4506bbc954f417fa5ade2021213bb8f0c6"},
+    {file = "certifi-2025.6.15-py3-none-any.whl", hash = "sha256:2e0c7ce7cb5d8f8634ca55d2ba7e6ec2689a2fd6537d8dec1296a477a4910057"},
+    {file = "certifi-2025.6.15.tar.gz", hash = "sha256:d747aa5a8b9bbbb1bb8c22bb13e22bd1f18e9796defa16bab421f7f7a317323b"},
 ]
 
 [[package]]
@@ -545,6 +545,7 @@ description = "Lightweight in-process concurrent programming"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
+markers = "python_version < \"3.14\" and (platform_machine == \"aarch64\" or platform_machine == \"ppc64le\" or platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"win32\" or platform_machine == \"WIN32\")"
 files = [
     {file = "greenlet-3.2.3-cp310-cp310-macosx_11_0_universal2.whl", hash = "sha256:1afd685acd5597349ee6d7a88a8bec83ce13c106ac78c196ee9dde7c04fe87be"},
     {file = "greenlet-3.2.3-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:761917cac215c61e9dc7324b2606107b3b292a8349bdebb31503ab4de3f559ac"},
@@ -1175,14 +1176,14 @@ files = [
 
 [[package]]
 name = "pydantic"
-version = "2.11.5"
+version = "2.11.7"
 description = "Data validation using Python type hints"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "pydantic-2.11.5-py3-none-any.whl", hash = "sha256:f9c26ba06f9747749ca1e5c94d6a85cb84254577553c8785576fd38fa64dc0f7"},
-    {file = "pydantic-2.11.5.tar.gz", hash = "sha256:7f853db3d0ce78ce8bbb148c401c2cdd6431b3473c0cdff2755c7690952a7b7a"},
+    {file = "pydantic-2.11.7-py3-none-any.whl", hash = "sha256:dde5df002701f6de26248661f6835bbe296a47bf73990135c7d07ce741b9623b"},
+    {file = "pydantic-2.11.7.tar.gz", hash = "sha256:d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"},
 ]
 
 [package.dependencies]
@@ -1913,14 +1914,14 @@ test = ["devpi-process (>=1.0.2)", "pytest (>=8.3.4)", "pytest-mock (>=3.14)"]
 
 [[package]]
 name = "typing-extensions"
-version = "4.13.2"
-description = "Backported and Experimental Type Hints for Python 3.8+"
+version = "4.14.0"
+description = "Backported and Experimental Type Hints for Python 3.9+"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "typing_extensions-4.13.2-py3-none-any.whl", hash = "sha256:a439e7c04b49fec3e5d3e2beaa21755cadbbdc391694e28ccdd36ca4a1408f8c"},
-    {file = "typing_extensions-4.13.2.tar.gz", hash = "sha256:e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"},
+    {file = "typing_extensions-4.14.0-py3-none-any.whl", hash = "sha256:a1514509136dd0b477638fc68d6a91497af5076466ad0fa6c338e44e359944af"},
+    {file = "typing_extensions-4.14.0.tar.gz", hash = "sha256:8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4"},
 ]
 
 [[package]]
@@ -2260,4 +2261,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.13.1"
-content-hash = "5651f03a582bc5ff11ae4f5f1609eafd56b0c1d9f75d89fe53375342510128e3"
+content-hash = "8550f751ef099d636f1d80f03929d0d067c6d8e6caa6bb5c207f4030b52dedae"
