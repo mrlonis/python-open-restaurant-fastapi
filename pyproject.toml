@@ -45,7 +45,7 @@ pre-commit = "^4.2.0"
 ruamel-yaml = "^0.18.14"
 tomlkit = "^0.13.3"
 tox = "^4.27.0"
-uvicorn = { version = "^0.34.3", extras = ["standard"] }
+uvicorn = { version = "^0.35.0", extras = ["standard"] }
 
 [build-system]
 requires = ["poetry-core"]
