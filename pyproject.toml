@@ -23,7 +23,7 @@ sqlalchemy-utils = "^0.41.1"
 sqlmodel = "^0.0.24"
 
 [tool.poetry.group.test.dependencies]
-coverage = "^7.9.1"
+coverage = "^7.9.2"
 flake8 = "^7.3.0"
 psycopg = "^3.2.9"
 pylint = "^3.3.7"
@@ -33,7 +33,7 @@ pytest-asyncio = "^1.0.0"
 pytest-cov = "^6.2.1"
 pytest-postgresql = "^7.0.2"
 pytest-watch = "^4.2.0"
-pytest-xdist = { version = "^3.7.0", extras = ["psutil"] }
+pytest-xdist = { version = "^3.8.0", extras = ["psutil"] }
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"
