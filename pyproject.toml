@@ -10,7 +10,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.13.1"
-alembic = "^1.16.4"
+alembic = "^1.16.5"
 alembic-utils = "^0.8.8"
 asyncpg = "^0.30.0"
 fastapi = "^0.116.1"
@@ -18,8 +18,8 @@ httpx = "^0.28.1"
 psycopg2-binary = "^2.9.10"
 pydantic = "^2.11.7"
 pydantic-settings = "^2.10.1"
-sqlalchemy = { version = "^2.0.41", extras = ["asyncio"] }
-sqlalchemy-utils = "^0.41.1"
+sqlalchemy = { version = "^2.0.43", extras = ["asyncio"] }
+sqlalchemy-utils = "^0.42.0"
 sqlmodel = "^0.0.24"
 
 [tool.poetry.group.test.dependencies]
