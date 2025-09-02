@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 env:
   PYTHON_VERSION: '3.13.1'
-  POETRY_VERSION: '2.0.0'
+  POETRY_VERSION: '2.1.4'
   LINT_PATHS: >
     app
     tests
