@@ -25,12 +25,12 @@ sqlmodel = "^0.0.24"
 [tool.poetry.group.test.dependencies]
 coverage = "^7.9.2"
 flake8 = "^7.3.0"
-psycopg = "^3.2.9"
+psycopg = "^3.2.10"
 pylint = "^3.3.7"
 pylint-junit = "^0.3.5"
-pytest = "^8.4.1"
+pytest = "^8.4.2"
 pytest-asyncio = "^1.0.0"
-pytest-cov = "^6.2.1"
+pytest-cov = "^6.3.0"
 pytest-postgresql = "^7.0.2"
 pytest-watch = "^4.2.0"
 pytest-xdist = { version = "^3.8.0", extras = ["psutil"] }
@@ -44,7 +44,7 @@ isort = "^6.0.1"
 pre-commit = "^4.2.0"
 ruamel-yaml = "^0.18.14"
 tomlkit = "^0.13.3"
-tox = "^4.27.0"
+tox = "^4.30.2"
 uvicorn = { version = "^0.35.0", extras = ["standard"] }
 
 [build-system]
