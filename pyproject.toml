@@ -30,7 +30,7 @@ pylint = "^3.3.7"
 pylint-junit = "^0.3.5"
 pytest = "^8.4.2"
 pytest-asyncio = "^1.0.0"
-pytest-cov = "^6.3.0"
+pytest-cov = "^7.0.0"
 pytest-postgresql = "^7.0.2"
 pytest-watch = "^4.2.0"
 pytest-xdist = { version = "^3.8.0", extras = ["psutil"] }
