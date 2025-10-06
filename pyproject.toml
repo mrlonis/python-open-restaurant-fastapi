@@ -23,29 +23,29 @@ sqlalchemy-utils = "^0.42.0"
 sqlmodel = "^0.0.25"
 
 [tool.poetry.group.test.dependencies]
-coverage = "^7.9.2"
+coverage = "^7.10.7"
 flake8 = "^7.3.0"
 psycopg = "^3.2.10"
-pylint = "^3.3.7"
+pylint = "^3.3.9"
 pylint-junit = "^0.3.5"
 pytest = "^8.4.2"
-pytest-asyncio = "^1.0.0"
+pytest-asyncio = "^1.2.0"
 pytest-cov = "^7.0.0"
 pytest-postgresql = "^7.0.2"
 pytest-watch = "^4.2.0"
 pytest-xdist = { version = "^3.8.0", extras = ["psutil"] }
 
 [tool.poetry.group.dev.dependencies]
-black = "^25.1.0"
-click = "^8.2.1"
+black = "^25.9.0"
+click = "^8.3.0"
 configupdater = "^3.1.1"
 devtools = "^0.12.2"
-isort = "^6.0.1"
+isort = "^6.1.0"
 pre-commit = "^4.2.0"
 ruamel-yaml = "^0.18.14"
 tomlkit = "^0.13.3"
-tox = "^4.30.2"
-uvicorn = { version = "^0.35.0", extras = ["standard"] }
+tox = "^4.30.3"
+uvicorn = { version = "^0.37.0", extras = ["standard"] }
 
 [build-system]
 requires = ["poetry-core"]
