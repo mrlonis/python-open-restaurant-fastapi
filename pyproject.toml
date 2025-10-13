@@ -44,7 +44,7 @@ isort = "^6.1.0"
 pre-commit = "^4.2.0"
 ruamel-yaml = "^0.18.14"
 tomlkit = "^0.13.3"
-tox = "^4.30.3"
+tox = "^4.31.0"
 uvicorn = { version = "^0.37.0", extras = ["standard"] }
 
 [build-system]
