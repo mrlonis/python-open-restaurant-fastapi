@@ -23,10 +23,10 @@ sqlalchemy-utils = "^0.42.0"
 sqlmodel = "^0.0.27"
 
 [tool.poetry.group.test.dependencies]
-coverage = "^7.10.7"
+coverage = "^7.11.0"
 flake8 = "^7.3.0"
-psycopg = "^3.2.10"
-pylint = "^4.0.0"
+psycopg = "^3.2.12"
+pylint = "^4.0.2"
 pylint-junit = "^0.3.5"
 pytest = "^8.4.2"
 pytest-asyncio = "^1.2.0"
@@ -42,10 +42,10 @@ configupdater = "^3.1.1"
 devtools = "^0.12.2"
 isort = "^6.1.0"
 pre-commit = "^4.2.0"
-ruamel-yaml = "^0.18.14"
+ruamel-yaml = "^0.18.16"
 tomlkit = "^0.13.3"
-tox = "^4.31.0"
-uvicorn = { version = "^0.37.0", extras = ["standard"] }
+tox = "^4.32.0"
+uvicorn = { version = "^0.38.0", extras = ["standard"] }
 
 [build-system]
 requires = ["poetry-core"]
