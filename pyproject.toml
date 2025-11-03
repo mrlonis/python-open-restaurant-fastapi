@@ -10,10 +10,10 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.13.1"
-alembic = "^1.17.0"
+alembic = "^1.17.1"
 alembic-utils = "^0.8.8"
 asyncpg = "^0.30.0"
-fastapi = "^0.120.0"
+fastapi = "^0.121.0"
 httpx = "^0.28.1"
 psycopg2-binary = "^2.9.11"
 pydantic = "^2.12.3"
