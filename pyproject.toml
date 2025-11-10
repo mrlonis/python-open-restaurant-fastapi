@@ -23,7 +23,7 @@ sqlalchemy-utils = "^0.42.0"
 sqlmodel = "^0.0.27"
 
 [tool.poetry.group.test.dependencies]
-coverage = "^7.11.0"
+coverage = "^7.11.3"
 flake8 = "^7.3.0"
 psycopg = "^3.2.12"
 pylint = "^4.0.2"
@@ -36,12 +36,12 @@ pytest-watch = "^4.2.0"
 pytest-xdist = { version = "^3.8.0", extras = ["psutil"] }
 
 [tool.poetry.group.dev.dependencies]
-black = "^25.9.0"
+black = "^25.11.0"
 click = "^8.3.0"
 configupdater = "^3.1.1"
 devtools = "^0.12.2"
 isort = "^7.0.0"
-pre-commit = "^4.2.0"
+pre-commit = "^4.4.0"
 ruamel-yaml = "^0.18.16"
 tomlkit = "^0.13.3"
 tox = "^4.32.0"
