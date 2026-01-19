@@ -43,7 +43,7 @@ devtools = "^0.12.2"
 isort = "^7.0.0"
 pre-commit = "^4.5.1"
 ruamel-yaml = "^0.19.1"
-tomlkit = "^0.13.3"
+tomlkit = "^0.14.0"
 tox = "^4.34.1"
 uvicorn = { version = "^0.40.0", extras = ["standard"] }
 
