@@ -36,7 +36,7 @@ pytest-watch = "^4.2.0"
 pytest-xdist = { version = "^3.8.0", extras = ["psutil"] }
 
 [tool.poetry.group.dev.dependencies]
-black = "^25.12.0"
+black = "^26.1.0"
 click = "^8.3.1"
 configupdater = "^3.1.1"
 devtools = "^0.12.2"
