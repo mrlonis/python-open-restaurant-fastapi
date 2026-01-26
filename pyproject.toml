@@ -18,7 +18,7 @@ httpx = "^0.28.1"
 psycopg2-binary = "^2.9.11"
 pydantic = "^2.12.5"
 pydantic-settings = "^2.12.0"
-sqlalchemy = { version = "^2.0.45", extras = ["asyncio"] }
+sqlalchemy = { version = "^2.0.46", extras = ["asyncio"] }
 sqlalchemy-utils = "^0.42.1"
 sqlmodel = "^0.0.31"
 
