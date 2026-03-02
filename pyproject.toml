@@ -13,12 +13,12 @@ python = "^3.13.1"
 alembic = "^1.18.4"
 alembic-utils = "^0.8.8"
 asyncpg = "^0.31.0"
-fastapi = "^0.131.0"
+fastapi = "^0.135.1"
 httpx = "^0.28.1"
 psycopg2-binary = "^2.9.11"
 pydantic = "^2.12.5"
 pydantic-settings = "^2.13.1"
-sqlalchemy = { version = "^2.0.46", extras = ["asyncio"] }
+sqlalchemy = { version = "^2.0.47", extras = ["asyncio"] }
 sqlalchemy-utils = "^0.42.1"
 sqlmodel = "^0.0.37"
 
