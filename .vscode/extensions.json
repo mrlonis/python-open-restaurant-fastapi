@@ -3,8 +3,6 @@
     "ms-python.black-formatter",
     "ms-azuretools.vscode-docker",
     "editorconfig.editorconfig",
-    "visualstudioexptteam.vscodeintellicode",
-    "visualstudioexptteam.intellicode-api-usage-examples",
     "ms-python.isort",
     "ms-ossdata.vscode-postgresql",
     "ms-python.vscode-pylance",

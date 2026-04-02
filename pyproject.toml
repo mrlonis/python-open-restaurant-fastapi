@@ -9,7 +9,7 @@ packages = [{ include = "python_open_restaurant_fastapi" }]
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.13.1"
+python = "^3.14.3"
 alembic = "^1.18.4"
 alembic-utils = "^0.8.8"
 asyncpg = "^0.31.0"
