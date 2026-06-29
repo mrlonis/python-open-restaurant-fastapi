@@ -20,7 +20,7 @@ pydantic = "^2.12.5"
 pydantic-settings = "^2.13.1"
 sqlalchemy = { version = "^2.0.48", extras = ["asyncio"] }
 sqlalchemy-utils = "^0.42.1"
-sqlmodel = ">=0.0.37,<0.0.39"
+sqlmodel = ">=0.0.37,<0.0.40"
 
 [tool.poetry.group.test.dependencies]
 coverage = "^7.13.5"
