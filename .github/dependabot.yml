@@ -8,14 +8,14 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
   - package-ecosystem: 'pip'
     directory: '/'
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
     allow:
       - dependency-type: 'all'
-    open-pull-requests-limit: 99
+    open-pull-requests-limit: 5
     groups:
       production-version-updates:
         applies-to: version-updates
@@ -44,4 +44,4 @@ updates:
   - package-ecosystem: 'gitsubmodule'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
